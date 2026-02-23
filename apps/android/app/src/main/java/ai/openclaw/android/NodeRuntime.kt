@@ -39,6 +39,11 @@ import kotlinx.serialization.json.buildJsonObject
 import java.util.concurrent.atomic.AtomicLong
 
 class NodeRuntime(context: Context) {
+  companion object {
+    private const val LOCAL_GATEWAY_HOST = "127.0.0.1"
+    private const val LOCAL_GATEWAY_PORT = 18789
+  }
+
   private val appContext = context.applicationContext
   private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
@@ -508,6 +513,18 @@ class NodeRuntime(context: Context) {
 
   fun setManualTls(value: Boolean) {
     prefs.setManualTls(value)
+  }
+
+  fun applyLocalGatewayPreset() {
+    prefs.setManualEnabled(true)
+    prefs.setManualHost(LOCAL_GATEWAY_HOST)
+    prefs.setManualPort(LOCAL_GATEWAY_PORT)
+    prefs.setManualTls(false)
+  }
+
+  fun connectLocalGateway() {
+    applyLocalGatewayPreset()
+    connectManual()
   }
 
   fun setCanvasDebugStatusEnabled(value: Boolean) {

@@ -167,6 +167,25 @@ struct SettingsTab: View {
                         DisclosureGroup("Advanced") {
                             Toggle("Use Manual Gateway", isOn: self.$manualGatewayEnabled)
 
+                            Button {
+                                Task { await self.connectLocalGatewayPreset() }
+                            } label: {
+                                if self.connectingGatewayID == "manual-local" {
+                                    HStack(spacing: 8) {
+                                        ProgressView()
+                                            .progressViewStyle(.circular)
+                                        Text("Connecting…")
+                                    }
+                                } else {
+                                    Text("Use This Device (localhost)")
+                                }
+                            }
+                            .disabled(self.connectingGatewayID != nil)
+
+                            Text("Preset: 127.0.0.1:18789 with TLS off. Use this when gateway/agent runs on this device.")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+
                             TextField("Host", text: self.$manualGatewayHost)
                                 .textInputAutocapitalization(.never)
                                 .autocorrectionDisabled()
@@ -860,6 +879,18 @@ struct SettingsTab: View {
     }
 
     // (GatewaySetupCode) decode raw setup codes.
+
+    private func connectLocalGatewayPreset() async {
+        self.connectingGatewayID = "manual-local"
+        defer { self.connectingGatewayID = nil }
+        self.manualGatewayEnabled = true
+        self.manualGatewayHost = "127.0.0.1"
+        self.manualGatewayPort = 18789
+        self.manualGatewayPortText = "18789"
+        self.manualGatewayTLS = false
+        self.setupStatusText = "Using localhost preset…"
+        await self.connectManual()
+    }
 
     private func connectManual() async {
         let host = self.manualGatewayHost.trimmingCharacters(in: .whitespacesAndNewlines)

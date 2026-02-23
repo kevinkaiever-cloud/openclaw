@@ -64,6 +64,18 @@ See [Bonjour](/gateway/bonjour) for the CoreDNS example.
 
 In Settings, enable **Manual Host** and enter the gateway host + port (default `18789`).
 
+### Localhost shortcut
+
+For local development setups, iOS Settings includes **Gateway → Advanced → Use This Device (localhost)**.
+
+- Preset values: `127.0.0.1:18789`, TLS off.
+- Useful when your gateway is reachable as localhost in your current environment (for example simulator-based workflows).
+
+Important:
+
+- On a physical iPhone, `localhost` points to that iPhone itself.
+- Use this only when a gateway is actually running on the same device context; otherwise use LAN/tailnet hostnames or IPs.
+
 ## Canvas + A2UI
 
 The iOS node renders a WKWebView canvas. Use `node.invoke` to drive it:

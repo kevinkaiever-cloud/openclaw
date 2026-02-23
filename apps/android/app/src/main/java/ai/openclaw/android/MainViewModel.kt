@@ -142,6 +142,10 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     runtime.connectManual()
   }
 
+  fun connectLocalGateway() {
+    runtime.connectLocalGateway()
+  }
+
   fun disconnect() {
     runtime.disconnect()
   }
