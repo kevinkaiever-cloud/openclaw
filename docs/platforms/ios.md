@@ -1,9 +1,10 @@
 ---
-summary: "iOS node app: connect to the Gateway, pairing, canvas, and troubleshooting"
+summary: "iOS node app: connect to the Gateway, pairing, canvas, local agent mode, and troubleshooting"
 read_when:
   - Pairing or reconnecting the iOS node
   - Running the iOS app from source
   - Debugging gateway discovery or canvas commands
+  - Running local agent on mobile
 title: "iOS App"
 ---
 
@@ -16,6 +17,7 @@ Availability: internal preview. The iOS app is not publicly distributed yet.
 - Connects to a Gateway over WebSocket (LAN or tailnet).
 - Exposes node capabilities: Canvas, Screen snapshot, Camera capture, Location, Talk mode, Voice wake.
 - Receives `node.invoke` commands and reports node status events.
+- **Local Agent mode**: run AI agents directly on the device without a Gateway server.
 
 ## Requirements
 
@@ -93,6 +95,46 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 
 - Voice wake and talk mode are available in Settings.
 - iOS may suspend background audio; treat voice features as best-effort when the app is not active.
+
+## Local Agent Mode
+
+Local Agent mode lets you run AI agents directly on your iOS device without requiring a Gateway server. This is ideal for mobile use when you want a standalone AI assistant.
+
+### Setup
+
+1. Open **Settings** in the iOS app.
+2. Tap **Local Agent** to open the configuration screen.
+3. Toggle **Enable Local Agent** on.
+4. Choose your AI provider (Anthropic Claude or OpenAI).
+5. Enter your API key (stored securely in the iOS Keychain).
+6. Optionally customize the model, system prompt, and max tokens.
+7. Tap **Test Connection** to verify your API key works.
+8. Close settings and tap the **Chat** button to start chatting with your local agent.
+
+### Supported providers
+
+| Provider | Models |
+|----------|--------|
+| Anthropic | Claude Sonnet 4, Claude 3.5 Sonnet, Claude 3.5 Haiku, Claude 3 Haiku |
+| OpenAI | GPT-4o, GPT-4o mini, GPT-4 Turbo, o1-mini |
+
+### Advanced options
+
+- **System Prompt**: customize the agent personality and behavior.
+- **Max Tokens**: control the maximum response length (default: 4096).
+- **Custom API Endpoint**: use a proxy or self-hosted model endpoint.
+
+### How it works
+
+- Messages are sent directly from your device to the AI provider API.
+- Conversation history is stored locally on the device.
+- Streaming responses show text as it arrives.
+- Sessions are persisted between app launches.
+- No Gateway connection is needed; the status pill shows "Connected" when local agent is enabled.
+
+### Switching modes
+
+When Local Agent mode is enabled, the Chat button opens the local agent chat instead of the Gateway chat. To switch back to Gateway mode, disable Local Agent in Settings.
 
 ## Common errors
 

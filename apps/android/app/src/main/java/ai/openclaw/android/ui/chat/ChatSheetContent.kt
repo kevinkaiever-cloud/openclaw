@@ -39,8 +39,14 @@ fun ChatSheetContent(viewModel: MainViewModel) {
   val pendingToolCalls by viewModel.chatPendingToolCalls.collectAsState()
   val sessions by viewModel.chatSessions.collectAsState()
 
-  LaunchedEffect(mainSessionKey) {
-    viewModel.loadChat(mainSessionKey)
+  val localAgentEnabled by viewModel.localAgentEnabled.collectAsState()
+
+  LaunchedEffect(mainSessionKey, localAgentEnabled) {
+    if (localAgentEnabled) {
+      viewModel.loadChat("local-main")
+    } else {
+      viewModel.loadChat(mainSessionKey)
+    }
     viewModel.refreshChatSessions(limit = 200)
   }
 

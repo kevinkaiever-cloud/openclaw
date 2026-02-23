@@ -1,9 +1,10 @@
 ---
-summary: "Android app (node): connection runbook + Canvas/Chat/Camera"
+summary: "Android app (node): connection runbook + Canvas/Chat/Camera + Local Agent"
 read_when:
   - Pairing or reconnecting the Android node
   - Debugging Android gateway discovery or auth
   - Verifying chat history parity across clients
+  - Running local agent on mobile
 title: "Android App"
 ---
 
@@ -12,7 +13,7 @@ title: "Android App"
 ## Support snapshot
 
 - Role: companion node app (Android does not host the Gateway).
-- Gateway required: yes (run it on macOS, Linux, or Windows via WSL2).
+- Gateway required: no (Local Agent mode can run standalone); yes for full node features.
 - Install: [Getting Started](/start/getting-started) + [Pairing](/gateway/pairing).
 - Gateway: [Runbook](/gateway) + [Configuration](/gateway/configuration).
   - Protocols: [Gateway protocol](/gateway/protocol) (nodes + control plane).
@@ -149,3 +150,42 @@ Camera commands (foreground only; permission-gated):
 - `camera.clip` (mp4)
 
 See [Camera node](/nodes/camera) for parameters and CLI helpers.
+
+## Local Agent Mode
+
+Local Agent mode lets you run AI agents directly on your Android device without requiring a Gateway server. This is ideal for mobile use when you want a standalone AI assistant.
+
+### Setup
+
+1. Open **Settings** in the Android app.
+2. Scroll to the **Local Agent** section.
+3. Toggle **Enable Local Agent** on.
+4. Choose your AI provider (Anthropic Claude or OpenAI).
+5. Select a model from the available list.
+6. Enter your API key (stored in Android EncryptedSharedPreferences).
+7. Close settings and tap the **Chat** button to start chatting.
+
+### Supported providers
+
+| Provider | Models |
+|----------|--------|
+| Anthropic | Claude Sonnet 4, Claude 3.5 Sonnet, Claude 3.5 Haiku, Claude 3 Haiku |
+| OpenAI | GPT-4o, GPT-4o mini, GPT-4 Turbo, o1-mini |
+
+### Advanced options
+
+- **System Prompt**: customize the agent personality and behavior.
+- **Max Tokens**: control the maximum response length (default: 4096).
+- **Custom API Endpoint**: use a proxy or self-hosted model endpoint.
+
+### How it works
+
+- Messages are sent directly from your device to the AI provider API via OkHttp.
+- Conversation history is stored locally on the device.
+- Streaming responses show text as it arrives.
+- Sessions are persisted between app launches.
+- No Gateway connection is needed; the status pill shows "Connected" when local agent is enabled.
+
+### Switching modes
+
+When Local Agent mode is enabled, the Chat button routes to the local agent chat. Gateway node features (camera, screen, location, voice wake) remain available when connected to a Gateway. To switch back to Gateway-only chat, disable Local Agent in Settings.
