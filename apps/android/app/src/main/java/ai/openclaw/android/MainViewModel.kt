@@ -2,6 +2,7 @@ package ai.openclaw.android
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import ai.openclaw.android.agent.LocalAgentConfig
 import ai.openclaw.android.gateway.GatewayEndpoint
 import ai.openclaw.android.chat.OutgoingAttachment
 import ai.openclaw.android.node.CameraCaptureManager
@@ -29,6 +30,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
   val isForeground: StateFlow<Boolean> = runtime.isForeground
   val seamColorArgb: StateFlow<Long> = runtime.seamColorArgb
   val mainSessionKey: StateFlow<String> = runtime.mainSessionKey
+
+  val localAgentEnabled: StateFlow<Boolean> = runtime.localAgentEnabled
+  val localAgentConfig: LocalAgentConfig = runtime.localAgentConfig
 
   val cameraHud: StateFlow<CameraHudState?> = runtime.cameraHud
   val cameraFlashToken: StateFlow<Long> = runtime.cameraFlashToken
@@ -184,5 +188,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
   fun sendChat(message: String, thinking: String, attachments: List<OutgoingAttachment>) {
     runtime.sendChat(message = message, thinking = thinking, attachments = attachments)
+  }
+
+  fun setLocalAgentEnabled(enabled: Boolean) {
+    runtime.setLocalAgentEnabled(enabled)
   }
 }

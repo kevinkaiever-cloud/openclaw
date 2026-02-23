@@ -464,6 +464,35 @@ fun SettingsSheet(viewModel: MainViewModel) {
 
     item { HorizontalDivider() }
 
+    // Local Agent
+    item { Text("Local Agent", style = MaterialTheme.typography.titleSmall) }
+    item {
+      val localEnabled by viewModel.localAgentEnabled.collectAsState()
+      ListItem(
+        headlineContent = { Text("Enable Local Agent") },
+        supportingContent = {
+          Text(
+            if (localEnabled) "Running ${viewModel.localAgentConfig.provider.displayName} on device"
+            else "Run AI agents directly on your phone without a Gateway",
+          )
+        },
+        trailingContent = {
+          Switch(
+            checked = localEnabled,
+            onCheckedChange = { viewModel.setLocalAgentEnabled(it) },
+          )
+        },
+      )
+    }
+    item {
+      val localEnabled by viewModel.localAgentEnabled.collectAsState()
+      AnimatedVisibility(visible = localEnabled) {
+        LocalAgentSettingsSection(viewModel = viewModel)
+      }
+    }
+
+    item { HorizontalDivider() }
+
     // Voice
     item { Text("Voice", style = MaterialTheme.typography.titleSmall) }
     item {
@@ -710,6 +739,156 @@ fun SettingsSheet(viewModel: MainViewModel) {
     }
 
     item { Spacer(modifier = Modifier.height(20.dp)) }
+  }
+}
+
+@Composable
+private fun LocalAgentSettingsSection(viewModel: MainViewModel) {
+  val config = viewModel.localAgentConfig
+  var selectedProvider by remember { mutableStateOf(config.provider) }
+  var selectedModel by remember { mutableStateOf(config.model) }
+  var apiKeyInput by remember { mutableStateOf(config.getApiKey(config.provider)) }
+  var showApiKey by remember { mutableStateOf(false) }
+  var systemPromptInput by remember { mutableStateOf(config.systemPrompt) }
+  var maxTokensInput by remember { mutableStateOf(config.maxTokens.toString()) }
+  var customEndpointInput by remember { mutableStateOf(config.customEndpoint) }
+  var testStatus by remember { mutableStateOf<String?>(null) }
+  var showAdvanced by remember { mutableStateOf(false) }
+
+  Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+    Text("Provider", style = MaterialTheme.typography.labelMedium)
+    ai.openclaw.android.agent.AIProvider.entries.forEach { provider ->
+      ListItem(
+        headlineContent = { Text(provider.displayName) },
+        leadingContent = {
+          RadioButton(
+            selected = selectedProvider == provider,
+            onClick = {
+              selectedProvider = provider
+              config.provider = provider
+              selectedModel = provider.defaultModel
+              config.model = provider.defaultModel
+              apiKeyInput = config.getApiKey(provider)
+            },
+          )
+        },
+        modifier = Modifier.clickable {
+          selectedProvider = provider
+          config.provider = provider
+          selectedModel = provider.defaultModel
+          config.model = provider.defaultModel
+          apiKeyInput = config.getApiKey(provider)
+        },
+      )
+    }
+
+    Text("Model", style = MaterialTheme.typography.labelMedium)
+    selectedProvider.availableModels.forEach { model ->
+      ListItem(
+        headlineContent = { Text(model, style = MaterialTheme.typography.bodySmall) },
+        leadingContent = {
+          RadioButton(
+            selected = selectedModel == model,
+            onClick = {
+              selectedModel = model
+              config.model = model
+            },
+          )
+        },
+        modifier = Modifier.clickable {
+          selectedModel = model
+          config.model = model
+        },
+      )
+    }
+
+    OutlinedTextField(
+      value = if (showApiKey) apiKeyInput else apiKeyInput.replace(Regex("."), "•"),
+      onValueChange = {
+        apiKeyInput = it
+        config.setApiKey(it, selectedProvider)
+      },
+      label = { Text("API Key") },
+      modifier = Modifier.fillMaxWidth(),
+      trailingIcon = {
+        TextButton(onClick = { showApiKey = !showApiKey }) {
+          Text(if (showApiKey) "Hide" else "Show")
+        }
+      },
+    )
+
+    val providerUrl = when (selectedProvider) {
+      ai.openclaw.android.agent.AIProvider.ANTHROPIC -> "console.anthropic.com"
+      ai.openclaw.android.agent.AIProvider.OPENAI -> "platform.openai.com"
+    }
+    Text(
+      "Get your key at $providerUrl",
+      style = MaterialTheme.typography.bodySmall,
+      color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+
+    if (testStatus != null) {
+      Text(
+        testStatus!!,
+        style = MaterialTheme.typography.bodySmall,
+        color = if (testStatus!!.contains("Success")) MaterialTheme.colorScheme.primary
+        else MaterialTheme.colorScheme.error,
+      )
+    }
+
+    ListItem(
+      headlineContent = { Text(if (showAdvanced) "Hide Advanced" else "Show Advanced") },
+      trailingContent = {
+        Icon(
+          if (showAdvanced) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+          contentDescription = null,
+        )
+      },
+      modifier = Modifier.clickable { showAdvanced = !showAdvanced },
+    )
+
+    AnimatedVisibility(visible = showAdvanced) {
+      Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        OutlinedTextField(
+          value = systemPromptInput,
+          onValueChange = {
+            systemPromptInput = it
+            config.systemPrompt = it
+          },
+          label = { Text("System Prompt") },
+          modifier = Modifier.fillMaxWidth(),
+          minLines = 3,
+          maxLines = 6,
+        )
+
+        OutlinedTextField(
+          value = maxTokensInput,
+          onValueChange = {
+            maxTokensInput = it
+            it.toIntOrNull()?.takeIf { v -> v > 0 }?.let { v -> config.maxTokens = v }
+          },
+          label = { Text("Max Tokens") },
+          modifier = Modifier.fillMaxWidth(),
+          keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+        )
+
+        OutlinedTextField(
+          value = customEndpointInput,
+          onValueChange = {
+            customEndpointInput = it
+            config.customEndpoint = it
+          },
+          label = { Text("Custom API Endpoint (optional)") },
+          modifier = Modifier.fillMaxWidth(),
+        )
+
+        Text(
+          "Leave blank to use the default endpoint.",
+          style = MaterialTheme.typography.bodySmall,
+          color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+      }
+    }
   }
 }
 

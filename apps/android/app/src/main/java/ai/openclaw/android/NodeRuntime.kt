@@ -5,6 +5,10 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.SystemClock
 import androidx.core.content.ContextCompat
+import ai.openclaw.android.agent.LocalAgentConfig
+import ai.openclaw.android.agent.LocalAgentService
+import ai.openclaw.android.agent.LocalChatController
+import ai.openclaw.android.agent.LocalSessionStore
 import ai.openclaw.android.chat.ChatController
 import ai.openclaw.android.chat.ChatMessage
 import ai.openclaw.android.chat.ChatPendingToolCall
@@ -281,6 +285,20 @@ class NodeRuntime(context: Context) {
       json = json,
       supportsChatSubscribe = false,
     )
+
+  val localAgentConfig: LocalAgentConfig = LocalAgentConfig(appContext)
+  private val localSessionStore: LocalSessionStore = LocalSessionStore(appContext)
+  private val localAgentService: LocalAgentService = LocalAgentService()
+  private val localChat: LocalChatController = LocalChatController(
+    scope = scope,
+    config = localAgentConfig,
+    sessionStore = localSessionStore,
+    agentService = localAgentService,
+  )
+
+  private val _localAgentEnabled = MutableStateFlow(localAgentConfig.isEnabled)
+  val localAgentEnabled: StateFlow<Boolean> = _localAgentEnabled.asStateFlow()
+
   private val talkMode: TalkModeManager by lazy {
     TalkModeManager(
       context = appContext,
@@ -351,16 +369,26 @@ class NodeRuntime(context: Context) {
 
   private var didAutoConnect = false
 
-  val chatSessionKey: StateFlow<String> = chat.sessionKey
-  val chatSessionId: StateFlow<String?> = chat.sessionId
-  val chatMessages: StateFlow<List<ChatMessage>> = chat.messages
-  val chatError: StateFlow<String?> = chat.errorText
-  val chatHealthOk: StateFlow<Boolean> = chat.healthOk
-  val chatThinkingLevel: StateFlow<String> = chat.thinkingLevel
-  val chatStreamingAssistantText: StateFlow<String?> = chat.streamingAssistantText
-  val chatPendingToolCalls: StateFlow<List<ChatPendingToolCall>> = chat.pendingToolCalls
-  val chatSessions: StateFlow<List<ChatSessionEntry>> = chat.sessions
-  val pendingRunCount: StateFlow<Int> = chat.pendingRunCount
+  val chatSessionKey: StateFlow<String>
+    get() = if (_localAgentEnabled.value) localChat.sessionKey else chat.sessionKey
+  val chatSessionId: StateFlow<String?>
+    get() = if (_localAgentEnabled.value) localChat.sessionId else chat.sessionId
+  val chatMessages: StateFlow<List<ChatMessage>>
+    get() = if (_localAgentEnabled.value) localChat.messages else chat.messages
+  val chatError: StateFlow<String?>
+    get() = if (_localAgentEnabled.value) localChat.errorText else chat.errorText
+  val chatHealthOk: StateFlow<Boolean>
+    get() = if (_localAgentEnabled.value) localChat.healthOk else chat.healthOk
+  val chatThinkingLevel: StateFlow<String>
+    get() = if (_localAgentEnabled.value) localChat.thinkingLevel else chat.thinkingLevel
+  val chatStreamingAssistantText: StateFlow<String?>
+    get() = if (_localAgentEnabled.value) localChat.streamingAssistantText else chat.streamingAssistantText
+  val chatPendingToolCalls: StateFlow<List<ChatPendingToolCall>>
+    get() = if (_localAgentEnabled.value) localChat.pendingToolCalls else chat.pendingToolCalls
+  val chatSessions: StateFlow<List<ChatSessionEntry>>
+    get() = if (_localAgentEnabled.value) localChat.sessions else chat.sessions
+  val pendingRunCount: StateFlow<Int>
+    get() = if (_localAgentEnabled.value) localChat.pendingRunCount else chat.pendingRunCount
 
   init {
     gatewayEventHandler = GatewayEventHandler(
@@ -675,33 +703,49 @@ class NodeRuntime(context: Context) {
     }
   }
 
+  fun setLocalAgentEnabled(enabled: Boolean) {
+    localAgentConfig.isEnabled = enabled
+    _localAgentEnabled.value = enabled
+    if (enabled) {
+      localChat.load("local-main")
+    }
+  }
+
   fun loadChat(sessionKey: String) {
-    val key = sessionKey.trim().ifEmpty { resolveMainSessionKey() }
-    chat.load(key)
+    if (_localAgentEnabled.value) {
+      localChat.load(sessionKey.trim().ifEmpty { "local-main" })
+    } else {
+      val key = sessionKey.trim().ifEmpty { resolveMainSessionKey() }
+      chat.load(key)
+    }
   }
 
   fun refreshChat() {
-    chat.refresh()
+    if (_localAgentEnabled.value) localChat.refresh() else chat.refresh()
   }
 
   fun refreshChatSessions(limit: Int? = null) {
-    chat.refreshSessions(limit = limit)
+    if (_localAgentEnabled.value) localChat.refreshSessions(limit = limit) else chat.refreshSessions(limit = limit)
   }
 
   fun setChatThinkingLevel(level: String) {
-    chat.setThinkingLevel(level)
+    if (_localAgentEnabled.value) localChat.setThinkingLevel(level) else chat.setThinkingLevel(level)
   }
 
   fun switchChatSession(sessionKey: String) {
-    chat.switchSession(sessionKey)
+    if (_localAgentEnabled.value) localChat.switchSession(sessionKey) else chat.switchSession(sessionKey)
   }
 
   fun abortChat() {
-    chat.abort()
+    if (_localAgentEnabled.value) localChat.abort() else chat.abort()
   }
 
   fun sendChat(message: String, thinking: String, attachments: List<OutgoingAttachment>) {
-    chat.sendMessage(message = message, thinkingLevel = thinking, attachments = attachments)
+    if (_localAgentEnabled.value) {
+      localChat.sendMessage(message = message, thinkingLevel = thinking, attachments = attachments)
+    } else {
+      chat.sendMessage(message = message, thinkingLevel = thinking, attachments = attachments)
+    }
   }
 
   private fun handleGatewayEvent(event: String, payloadJson: String?) {

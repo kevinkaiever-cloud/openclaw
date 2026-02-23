@@ -179,9 +179,12 @@ fun RootScreen(viewModel: MainViewModel) {
       null
     }
 
+  val localAgentEnabled by viewModel.localAgentEnabled.collectAsState()
+
   val gatewayState =
-    remember(serverName, statusText) {
+    remember(serverName, statusText, localAgentEnabled) {
       when {
+        localAgentEnabled -> GatewayState.Connected
         serverName != null -> GatewayState.Connected
         statusText.contains("connecting", ignoreCase = true) ||
           statusText.contains("reconnecting", ignoreCase = true) -> GatewayState.Connecting
