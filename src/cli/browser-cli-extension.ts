@@ -3,7 +3,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Command } from "commander";
 import { movePathToTrash } from "../browser/trash.js";
-import { resolveStateDir } from "../config/paths.js";
+import { loadConfig } from "../config/config.js";
+import { DEFAULT_GATEWAY_PORT, resolveStateDir } from "../config/paths.js";
 import { danger, info } from "../globals.js";
 import { copyToClipboard } from "../infra/clipboard.js";
 import { defaultRuntime } from "../runtime.js";
@@ -64,7 +65,35 @@ export async function installChromeExtension(opts?: {
     throw new Error("Chrome extension install failed (manifest.json missing). Try again.");
   }
 
+  await configureChromeExtensionDefaults(dest);
   return { path: dest };
+}
+
+/** Write default relay settings from config into the extension so options page can pre-fill. */
+export async function configureChromeExtensionDefaults(extDir: string): Promise<void> {
+  if (!hasManifest(extDir)) return;
+  let token = "";
+  let port = DEFAULT_GATEWAY_PORT;
+  try {
+    const cfg = loadConfig();
+    const auth = cfg.gateway?.auth;
+    if (typeof auth?.token === "string" && auth.token.trim()) {
+      token = auth.token.trim();
+    }
+    if (typeof cfg.gateway?.port === "number" && cfg.gateway.port > 0) {
+      port = cfg.gateway.port;
+    }
+  } catch {
+    // Ignore config load errors
+  }
+  const envToken = process.env.OPENCLAW_GATEWAY_TOKEN?.trim();
+  if (!token && envToken) token = envToken;
+  const defaults = { gatewayToken: token, relayPort: port };
+  await fs.promises.writeFile(
+    path.join(extDir, "defaults.json"),
+    JSON.stringify(defaults, null, 2),
+    "utf-8",
+  );
 }
 
 export function registerBrowserExtensionCommands(
@@ -106,6 +135,40 @@ export function registerBrowserExtensionCommands(
             `${theme.muted("Docs:")} ${formatDocsLink("/tools/chrome-extension", "docs.openclaw.ai/tools/chrome-extension")}`,
           ].join("\n"),
         ),
+      );
+    });
+
+  ext
+    .command("configure")
+    .description("Write gateway token and port from config into the extension (pre-fill options)")
+    .action(async (_opts, cmd) => {
+      const parent = parentOpts(cmd);
+      const dir = installedExtensionRootDir();
+      if (!hasManifest(dir)) {
+        defaultRuntime.error(
+          danger(
+            [
+              `Chrome extension is not installed. Run: "${formatCliCommand("openclaw browser extension install")}"`,
+              `Docs: ${formatDocsLink("/tools/chrome-extension", "docs.openclaw.ai/tools/chrome-extension")}`,
+            ].join("\n"),
+          ),
+        );
+        defaultRuntime.exit(1);
+        return;
+      }
+      try {
+        await configureChromeExtensionDefaults(dir);
+      } catch (err) {
+        defaultRuntime.error(danger(String(err)));
+        defaultRuntime.exit(1);
+        return;
+      }
+      if (parent?.json) {
+        defaultRuntime.log(JSON.stringify({ ok: true, path: dir }, null, 2));
+        return;
+      }
+      defaultRuntime.error(
+        info("Default token and port written. Open the extension options and click Save to apply."),
       );
     });
 

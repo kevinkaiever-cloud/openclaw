@@ -1,0 +1,27 @@
+OpenClaw 工具配置说明
+====================
+
+一、浏览器控制（已配置）
+------------------------
+已添加 gateway.auth.token，浏览器控制服务应可正常使用。
+重启网关后，Chrome 扩展需要配置相同的 Token 才能连接。
+
+Token: bae500d4aa87fd70389f28abfbd8ca529bc02d8dc614356b0b29aa5e4ae63745
+
+Control UI 带 Token 访问：http://127.0.0.1:18789?token=上述Token
+
+
+二、网页搜索（需自行获取 Key）
+------------------------------
+1. 访问 https://api-dashboard.search.brave.com/app/keys
+2. 注册并创建 API Key（有免费额度）
+3. 运行配置命令：
+   openclaw config set env.vars.BRAVE_API_KEY "你的Key"
+   或编辑 ~/.openclaw/openclaw.json 中 env.vars.BRAVE_API_KEY
+
+
+三、重启网关
+------------
+修改配置后需重启：
+  pnpm openclaw gateway stop
+  pnpm openclaw gateway --port 18789 --verbose

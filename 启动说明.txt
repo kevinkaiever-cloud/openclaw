@@ -1,0 +1,27 @@
+========================================
+  OpenClaw 网关 - Windows 启动说明
+========================================
+
+【"Gateway service missing" 说明】
+此提示为正常现象。OpenClaw 在 Windows 上以普通进程运行，
+不依赖系统服务。直接启动网关即可。
+
+【启动方式】
+
+方式一：双击运行
+  - 双击 "启动网关.bat"
+
+方式二：命令行
+  cd C:\Users\Administrator\Desktop\openclaw
+  pnpm openclaw gateway --port 18789 --verbose
+
+【访问控制面板】
+  浏览器打开: http://127.0.0.1:18789
+
+【停止网关】
+  在运行网关的窗口按 Ctrl+C
+  或关闭该窗口
+
+【端口被占用时】
+  1. 查找占用进程: netstat -ano | findstr "18789"
+  2. 结束进程: taskkill /PID <进程ID> /F

@@ -57,10 +57,16 @@ async function getGatewayToken() {
 }
 
 function setBadge(tabId, kind) {
-  const cfg = BADGE[kind]
-  void chrome.action.setBadgeText({ tabId, text: cfg.text })
-  void chrome.action.setBadgeBackgroundColor({ tabId, color: cfg.color })
-  void chrome.action.setBadgeTextColor({ tabId, color: '#FFFFFF' }).catch(() => {})
+  try {
+    const cfg = BADGE[kind]
+    void chrome.action.setBadgeText({ tabId, text: cfg.text })
+    void chrome.action.setBadgeBackgroundColor({ tabId, color: cfg.color })
+    if (typeof chrome.action?.setBadgeTextColor === 'function') {
+      void chrome.action.setBadgeTextColor({ tabId, color: '#FFFFFF' }).catch(() => {})
+    }
+  } catch (e) {
+    console.warn('[OpenClaw] setBadge failed:', e)
+  }
 }
 
 // Persist attached tab state to survive MV3 service worker restarts.
@@ -129,10 +135,12 @@ async function ensureRelayConnection() {
     const gatewayToken = await getGatewayToken()
     const httpBase = `http://127.0.0.1:${port}`
     const wsUrl = buildRelayWsUrl(port, gatewayToken)
+    console.log('[OpenClaw] Connecting to relay:', httpBase)
 
     // Fast preflight: is the relay server up?
     try {
       await fetch(`${httpBase}/`, { method: 'HEAD', signal: AbortSignal.timeout(2000) })
+      console.log('[OpenClaw] Preflight OK, opening WebSocket...')
     } catch (err) {
       throw new Error(`Relay server not reachable at ${httpBase} (${String(err)})`)
     }
@@ -144,6 +152,7 @@ async function ensureRelayConnection() {
       const t = setTimeout(() => reject(new Error('WebSocket connect timeout')), 5000)
       ws.onopen = () => {
         clearTimeout(t)
+        console.log('[OpenClaw] WebSocket connected')
         resolve()
       }
       ws.onerror = () => {
@@ -388,14 +397,35 @@ function getTabByTargetId(targetId) {
 
 async function attachTab(tabId, opts = {}) {
   const debuggee = { tabId }
-  await chrome.debugger.attach(debuggee, '1.3')
-  await chrome.debugger.sendCommand(debuggee, 'Page.enable').catch(() => {})
-
-  const info = /** @type {any} */ (await chrome.debugger.sendCommand(debuggee, 'Target.getTargetInfo'))
-  const targetInfo = info?.targetInfo
-  const targetId = String(targetInfo?.targetId || '').trim()
-  if (!targetId) {
-    throw new Error('Target.getTargetInfo returned no targetId')
+  let attached = false
+  let targetInfo
+  let targetId
+  try {
+    console.log('[OpenClaw] Step 1: attach debugger to tab', tabId)
+    await chrome.debugger.attach(debuggee, '1.3')
+    attached = true
+    console.log('[OpenClaw] Step 2: Page.enable')
+    await chrome.debugger.sendCommand(debuggee, 'Page.enable').catch(() => {})
+    console.log('[OpenClaw] Step 3: Target.getTargetInfo')
+    const info = /** @type {any} */ (await chrome.debugger.sendCommand(debuggee, 'Target.getTargetInfo'))
+    targetInfo = info?.targetInfo
+    targetId = String(targetInfo?.targetId || '').trim()
+    if (!targetId) {
+      throw new Error('Target.getTargetInfo returned no targetId')
+    }
+  } catch (err) {
+    if (attached) {
+      try {
+        await chrome.debugger.detach(debuggee)
+      } catch {}
+    }
+    const msg = err instanceof Error ? err.message : String(err)
+    if (msg.includes('NOT allowed') || msg.includes('-32000')) {
+      throw new Error(
+        'NOT allowed: Use a simple page (baidu.com). Close DevTools (F12) and any other debugger.',
+      )
+    }
+    throw err
   }
 
   const sid = nextSession++
@@ -506,22 +536,26 @@ async function connectOrToggleForActiveTab() {
     setBadge(tabId, 'connecting')
     void chrome.action.setTitle({
       tabId,
-      title: 'OpenClaw Browser Relay: connecting to local relay…',
+      title: 'OpenClaw Browser Relay: connecting…',
     })
 
     try {
       await ensureRelayConnection()
+      void chrome.action.setTitle({
+        tabId,
+        title: 'OpenClaw: 请点击页面底部的「开启」按钮允许调试',
+      })
       await attachTab(tabId)
     } catch (err) {
       tabs.delete(tabId)
       setBadge(tabId, 'error')
+      const message = err instanceof Error ? err.message : String(err)
       void chrome.action.setTitle({
         tabId,
-        title: 'OpenClaw Browser Relay: relay not running (open options for setup)',
+        title: `OpenClaw: ${message}`,
       })
       void maybeOpenHelpOnce()
-      const message = err instanceof Error ? err.message : String(err)
-      console.warn('attach failed', message, nowStack())
+      console.error('[OpenClaw] attach failed:', message, err)
     }
   } finally {
     tabOperationLocks.delete(tabId)

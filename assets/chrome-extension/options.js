@@ -57,10 +57,34 @@ async function checkRelayReachable(port, token) {
   }
 }
 
+async function loadDefaults() {
+  try {
+    const url = chrome.runtime.getURL('defaults.json')
+    const res = await fetch(url)
+    if (!res.ok) return null
+    const data = await res.json()
+    return {
+      relayPort: clampPort(data.relayPort),
+      gatewayToken: String(data.gatewayToken || '').trim()
+    }
+  } catch {
+    return null
+  }
+}
+
 async function load() {
   const stored = await chrome.storage.local.get(['relayPort', 'gatewayToken'])
-  const port = clampPort(stored.relayPort)
-  const token = String(stored.gatewayToken || '').trim()
+  let port = clampPort(stored.relayPort)
+  let token = String(stored.gatewayToken || '').trim()
+  if (!token) {
+    const defaults = await loadDefaults()
+    if (defaults) {
+      if (!stored.relayPort) port = defaults.relayPort
+      if (!token) token = defaults.gatewayToken
+      // Auto-save defaults so they persist
+      await chrome.storage.local.set({ relayPort: port, gatewayToken: token })
+    }
+  }
   document.getElementById('port').value = String(port)
   document.getElementById('token').value = token
   updateRelayUrl(port)

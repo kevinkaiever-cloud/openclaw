@@ -1,0 +1,46 @@
+{
+  "env": {
+    "DEEPSEEK_API_KEY": "your-deepseek-api-key-here"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "deepseek/deepseek-chat"
+      },
+      "models": {
+        "deepseek/deepseek-chat": { "alias": "DeepSeek Chat" },
+        "deepseek/deepseek-reasoner": { "alias": "DeepSeek Reasoner" }
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com/v1",
+        "apiKey": "${DEEPSEEK_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "deepseek-chat",
+            "name": "DeepSeek Chat (V3.2)",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": { "input": 0.00000028, "output": 0.00000042 },
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "deepseek-reasoner",
+            "name": "DeepSeek Reasoner (V3.2)",
+            "reasoning": true,
+            "input": ["text"],
+            "cost": { "input": 0.00000055, "output": 0.00000219 },
+            "contextWindow": 128000,
+            "maxTokens": 65536
+          }
+        ]
+      }
+    }
+  }
+}
