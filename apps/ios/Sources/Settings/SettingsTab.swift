@@ -246,6 +246,27 @@ struct SettingsTab: View {
                     }
                 }
 
+                Section {
+                    NavigationLink {
+                        LocalAgentSettingsView()
+                    } label: {
+                        HStack(spacing: 10) {
+                            Image(systemName: "cpu")
+                                .foregroundStyle(LocalAgentConfig.shared.isEnabled ? .purple : .secondary)
+                            Text("Local Agent")
+                            Spacer()
+                            Text(LocalAgentConfig.shared.isEnabled ? "On" : "Off")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    if LocalAgentConfig.shared.isEnabled {
+                        Text("Running \(LocalAgentConfig.shared.provider.displayName) locally on this device.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
                 Section("Device") {
                     DisclosureGroup("Features") {
                         self.featureToggle(

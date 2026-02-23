@@ -17,6 +17,7 @@ struct RootCanvas: View {
     @AppStorage("gateway.manual.enabled") private var manualGatewayEnabled: Bool = false
     @AppStorage("gateway.manual.host") private var manualGatewayHost: String = ""
     @AppStorage("onboarding.quickSetupDismissed") private var quickSetupDismissed: Bool = false
+    @AppStorage("localAgent.enabled") private var localAgentEnabled: Bool = false
     @State private var presentedSheet: PresentedSheet?
     @State private var voiceWakeToastText: String?
     @State private var toastDismissTask: Task<Void, Never>?
@@ -25,9 +26,13 @@ struct RootCanvas: View {
     @State private var didEvaluateOnboarding: Bool = false
     @State private var didAutoOpenSettings: Bool = false
 
+    private static let localSessionStore = LocalAgentSessionStore()
+    private static let localAgentService = LocalAgentService()
+
     private enum PresentedSheet: Identifiable {
         case settings
         case chat
+        case localChat
         case quickSetup
 
         var id: Int {
@@ -35,6 +40,7 @@ struct RootCanvas: View {
             case .settings: 0
             case .chat: 1
             case .quickSetup: 2
+            case .localChat: 3
             }
         }
     }
@@ -76,7 +82,11 @@ struct RootCanvas: View {
                 cameraHUDText: self.appModel.cameraHUDText,
                 cameraHUDKind: self.appModel.cameraHUDKind,
                 openChat: {
-                    self.presentedSheet = .chat
+                    if self.localAgentEnabled {
+                        self.presentedSheet = .localChat
+                    } else {
+                        self.presentedSheet = .chat
+                    }
                 },
                 openSettings: {
                     self.presentedSheet = .settings
@@ -102,6 +112,15 @@ struct RootCanvas: View {
                     sessionKey: self.appModel.chatSessionKey,
                     agentName: self.appModel.activeAgentName,
                     userAccent: self.appModel.seamColor)
+            case .localChat:
+                ChatSheet(
+                    localTransport: LocalAgentChatTransport(
+                        config: LocalAgentConfig.shared,
+                        sessionStore: Self.localSessionStore,
+                        agentService: Self.localAgentService),
+                    sessionKey: "local-main",
+                    agentName: "Local Agent",
+                    userAccent: .purple)
             case .quickSetup:
                 GatewayQuickSetupSheet()
                     .environment(self.appModel)
@@ -176,6 +195,7 @@ struct RootCanvas: View {
     }
 
     private var gatewayStatus: StatusPill.GatewayState {
+        if self.localAgentEnabled { return .connected }
         if self.appModel.gatewayServerName != nil { return .connected }
 
         let text = self.appModel.gatewayStatusText.trimmingCharacters(in: .whitespacesAndNewlines)
