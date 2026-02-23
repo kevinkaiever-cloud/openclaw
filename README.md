@@ -1,5 +1,8 @@
 # 🦞 OpenClaw — Personal AI Assistant
 
+> **Fork by [@kevinkaiever-cloud](https://github.com/kevinkaiever-cloud)** · 已配置 DeepSeek 模型 + Windows 启动优化  
+> 本项目在官方 OpenClaw 基础上增加了：DeepSeek 集成、Windows 一键启动、Telegram 代理配置说明等。
+
 <p align="center">
     <picture>
         <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text-dark.png">
@@ -81,6 +84,24 @@ openclaw agent --message "Ship checklist" --thinking high
 
 Upgrading? [Updating guide](https://docs.openclaw.ai/install/updating) (and run `openclaw doctor`).
 
+---
+
+## 本项目快速开始（Fork 定制）
+
+本 Fork 针对 **DeepSeek + Windows** 做了优化，可按以下文档快速上手：
+
+| 文档 | 说明 |
+|------|------|
+| [DEEPSEEK-SETUP.md](DEEPSEEK-SETUP.md) | DeepSeek API 配置、模型切换、故障排查 |
+| [启动说明.txt](启动说明.txt) | Windows 网关启动方式、控制面板访问、端口占用处理 |
+| [Telegram配置说明.md](Telegram配置说明.md) | Telegram 机器人无响应排查、中国大陆代理配置 |
+
+**Windows 一键启动**：双击 `启动网关.bat` 即可启动网关，浏览器访问 http://127.0.0.1:18789 进入控制面板。
+
+同步上游：`git pull origin main` 可拉取 [openclaw/openclaw](https://github.com/openclaw/openclaw) 最新更新。
+
+---
+
 ## Development channels
 
 - **stable**: tagged releases (`vYYYY.M.D` or `vYYYY.M.D-<patch>`), npm dist-tag `latest`.
@@ -95,7 +116,7 @@ Details: [Development channels](https://docs.openclaw.ai/install/development-cha
 Prefer `pnpm` for builds from source. Bun is optional for running TypeScript directly.
 
 ```bash
-git clone https://github.com/openclaw/openclaw.git
+git clone https://github.com/kevinkaiever-cloud/openclaw.git
 cd openclaw
 
 pnpm install
