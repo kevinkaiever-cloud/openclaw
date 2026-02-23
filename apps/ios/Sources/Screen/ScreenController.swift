@@ -10,6 +10,7 @@ final class ScreenController {
 
     var urlString: String = ""
     var errorText: String?
+    private var allowLoopbackCanvasNavigation: Bool = false
 
     /// Callback invoked when an openclaw:// deep link is tapped in the canvas
     var onDeepLink: ((URL) -> Void)?
@@ -35,7 +36,8 @@ final class ScreenController {
         if let url = URL(string: trimmed),
            !url.isFileURL,
            let host = url.host,
-           Self.isLoopbackHost(host)
+           Self.isLoopbackHost(host),
+           !self.allowLoopbackCanvasNavigation
         {
             // Never try to load loopback URLs from a remote gateway.
             self.showDefaultCanvas()
@@ -43,6 +45,10 @@ final class ScreenController {
         }
         self.urlString = (trimmed == "/" ? "" : trimmed)
         self.reload()
+    }
+
+    func setAllowLoopbackCanvasNavigation(_ allow: Bool) {
+        self.allowLoopbackCanvasNavigation = allow
     }
 
     func reload() {

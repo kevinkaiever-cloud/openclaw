@@ -45,6 +45,20 @@ private func mountScreen(_ screen: ScreenController) throws -> (ScreenWebViewCoo
         #expect(screen.urlString.isEmpty)
     }
 
+    @Test @MainActor func navigateRejectsLoopbackByDefault() {
+        let screen = ScreenController()
+        screen.navigate(to: "http://127.0.0.1:18789/__openclaw__/a2ui/")
+        #expect(screen.urlString.isEmpty)
+    }
+
+    @Test @MainActor func navigateAllowsLoopbackWhenEnabled() {
+        let screen = ScreenController()
+        screen.setAllowLoopbackCanvasNavigation(true)
+        let url = "http://127.0.0.1:18789/__openclaw__/a2ui/"
+        screen.navigate(to: url)
+        #expect(screen.urlString == url)
+    }
+
     @Test @MainActor func evalExecutesJavaScript() async throws {
         let screen = ScreenController()
         let (coordinator, _) = try mountScreen(screen)

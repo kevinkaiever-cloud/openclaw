@@ -11,7 +11,10 @@ extension NodeAppModel {
         guard let raw = await self.gatewaySession.currentCanvasHostUrl() else { return nil }
         let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty, let base = URL(string: trimmed) else { return nil }
-        if let host = base.host, Self.isLoopbackHost(host) {
+        if let host = base.host,
+           Self.isLoopbackHost(host),
+           !self.shouldAllowLoopbackCanvasNavigation()
+        {
             return nil
         }
         return base.appendingPathComponent("__openclaw__/a2ui/").absoluteString + "?platform=ios"
@@ -27,6 +30,15 @@ extension NodeAppModel {
             return true
         }
         return false
+    }
+
+    func shouldAllowLoopbackCanvasNavigation() -> Bool {
+        guard let host = self.activeGatewayConnectConfig?.url.host else { return false }
+        return Self.isLoopbackHost(host)
+    }
+
+    func updateLoopbackCanvasPolicyForActiveGateway() {
+        self.screen.setAllowLoopbackCanvasNavigation(self.shouldAllowLoopbackCanvasNavigation())
     }
 
     func showA2UIOnConnectIfNeeded() async {

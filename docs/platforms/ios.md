@@ -70,6 +70,7 @@ For local development setups, iOS Settings includes **Gateway → Advanced → U
 
 - Preset values: `127.0.0.1:18789`, TLS off.
 - Useful when your gateway is reachable as localhost in your current environment (for example simulator-based workflows).
+- When connected in localhost mode, loopback canvas/A2UI URLs are allowed (so `/__openclaw__/canvas/` and `/__openclaw__/a2ui/` can render from the local gateway).
 
 Important:
 
