@@ -233,6 +233,18 @@ public struct OpenClawChatHistoryPayload: Codable, Sendable {
     public let sessionId: String?
     public let messages: [AnyCodable]?
     public let thinkingLevel: String?
+
+    public init(
+        sessionKey: String,
+        sessionId: String?,
+        messages: [AnyCodable]?,
+        thinkingLevel: String?)
+    {
+        self.sessionKey = sessionKey
+        self.sessionId = sessionId
+        self.messages = messages
+        self.thinkingLevel = thinkingLevel
+    }
 }
 
 public struct OpenClawSessionPreviewItem: Codable, Hashable, Sendable {
@@ -259,6 +271,11 @@ public struct OpenClawSessionsPreviewPayload: Codable, Sendable {
 public struct OpenClawChatSendResponse: Codable, Sendable {
     public let runId: String
     public let status: String
+
+    public init(runId: String, status: String) {
+        self.runId = runId
+        self.status = status
+    }
 }
 
 public struct OpenClawChatEventPayload: Codable, Sendable {
@@ -267,6 +284,20 @@ public struct OpenClawChatEventPayload: Codable, Sendable {
     public let state: String?
     public let message: AnyCodable?
     public let errorMessage: String?
+
+    public init(
+        runId: String?,
+        sessionKey: String?,
+        state: String?,
+        message: AnyCodable?,
+        errorMessage: String?)
+    {
+        self.runId = runId
+        self.sessionKey = sessionKey
+        self.state = state
+        self.message = message
+        self.errorMessage = errorMessage
+    }
 }
 
 public struct OpenClawAgentEventPayload: Codable, Sendable, Identifiable {
@@ -276,6 +307,20 @@ public struct OpenClawAgentEventPayload: Codable, Sendable, Identifiable {
     public let stream: String
     public let ts: Int?
     public let data: [String: AnyCodable]
+
+    public init(
+        runId: String,
+        seq: Int?,
+        stream: String,
+        ts: Int?,
+        data: [String: AnyCodable])
+    {
+        self.runId = runId
+        self.seq = seq
+        self.stream = stream
+        self.ts = ts
+        self.data = data
+    }
 }
 
 public struct OpenClawChatPendingToolCall: Identifiable, Hashable, Sendable {
