@@ -1,0 +1,33 @@
+{
+  "gateway": {
+    "mode": "local",
+    "auth": { "mode": "none" },
+    "controlUi": { "dangerouslyDisableDeviceAuth": true }
+  },
+  "agents": {
+    "defaults": {
+      "model": { "primary": "deepseek/deepseek-chat" },
+      "models": {
+        "deepseek/deepseek-chat": { "alias": "DeepSeek Chat" },
+        "deepseek/deepseek-reasoner": { "alias": "DeepSeek Reasoner" }
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com/v1",
+        "apiKey": "${DEEPSEEK_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          { "id": "deepseek-chat", "name": "DeepSeek Chat", "reasoning": false, "input": ["text"], "contextWindow": 128000, "maxTokens": 8192 },
+          { "id": "deepseek-reasoner", "name": "DeepSeek Reasoner", "reasoning": true, "input": ["text"], "contextWindow": 128000, "maxTokens": 65536 }
+        ]
+      }
+    }
+  },
+  "tools": {
+    "web": { "search": { "enabled": true, "provider": "brave" } }
+  }
+}

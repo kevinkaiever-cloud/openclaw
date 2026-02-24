@@ -8,20 +8,66 @@
 
 【启动方式】
 
-方式一：双击运行
+方式一：双击运行（推荐）
   - 双击 "启动网关.bat"
+  - 已自动使用 pnpm.cmd，避免 PowerShell 执行策略限制
 
 方式二：命令行
-  cd C:\Users\Administrator\Desktop\openclaw
-  pnpm openclaw gateway --port 18789 --verbose
+  cd <项目目录，例如 C:\Users\Administrator\openclaw>
+  set PATH=C:\Program Files\Git\bin;%PATH%
+  pnpm.cmd openclaw gateway --port 18789 --verbose
+
+  若报「无法加载 pnpm.ps1，在此系统上禁止运行脚本」：
+  请改用 pnpm.cmd，或直接双击 启动网关.bat。
 
 【访问控制面板】
   浏览器打开: http://127.0.0.1:18789
 
 【停止网关】
-  在运行网关的窗口按 Ctrl+C
-  或关闭该窗口
+  在运行网关的窗口按 Ctrl+C，或关闭该窗口。
 
 【端口被占用时】
   1. 查找占用进程: netstat -ano | findstr "18789"
-  2. 结束进程: taskkill /PID <进程ID> /F
+  2. 记下最后一列 PID，结束进程: taskkill /PID <PID> /F
+
+----------------------------------------
+  首次运行 / 配置
+----------------------------------------
+
+1) 复制示例配置（无配置时）
+   双击 "首次配置.bat" 可将 openclaw.windows.example.json 复制到
+   %USERPROFILE%\.openclaw\openclaw.json（若该文件已存在则不会覆盖）。
+   或在 %USERPROFILE%\.openclaw\ 下新建 .env，填入：
+   DEEPSEEK_API_KEY=sk-你的密钥
+   BRAVE_API_KEY=你的Brave搜索密钥（可选）
+
+2) DeepSeek 模型
+   默认模型 ID 为 deepseek/deepseek-chat（非 deepseek/chat）。
+   详见 DEEPSEEK-SETUP.md。
+
+----------------------------------------
+  故障排查
+----------------------------------------
+
+• disconnected (4008): connect failed / unauthorized
+  本机免 Token 配置：在 openclaw.json 中设置
+    "gateway": {
+      "auth": { "mode": "none" },
+      "controlUi": { "dangerouslyDisableDeviceAuth": true }
+    }
+  保存后重启网关，再刷新 http://127.0.0.1:18789
+
+• Unknown model: deepseek/chat
+  需在 openclaw.json 中配置 models.providers.deepseek，
+  并设置 agents.defaults.model.primary 为 "deepseek/deepseek-chat"。
+  可参考 openclaw.windows.example.json 或 DEEPSEEK-SETUP.md。
+
+• 构建失败：'bash' 不是内部或外部命令
+  Windows 构建需 bash（来自 Git for Windows）。请：
+  - 安装 Git for Windows，或将已有 Git 的 bin 加入 PATH，例如：
+    set PATH=C:\Program Files\Git\bin;%PATH%
+  - 然后执行: pnpm build:win
+  或先 set PATH 再 pnpm build。
+
+• 网关已运行却无法再次启动
+  先结束占用 18789 的进程（见上方「端口被占用时」），再启动。

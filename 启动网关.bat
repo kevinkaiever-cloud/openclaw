@@ -13,6 +13,6 @@ echo 启动后请访问: http://127.0.0.1:18789
 echo 按 Ctrl+C 可停止
 echo.
 
-pnpm openclaw gateway --port 18789 --verbose
+pnpm.cmd openclaw gateway --port 18789 --verbose
 
 pause

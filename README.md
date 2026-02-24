@@ -93,7 +93,8 @@ Upgrading? [Updating guide](https://docs.openclaw.ai/install/updating) (and run 
 | 文档 | 说明 |
 |------|------|
 | [DEEPSEEK-SETUP.md](DEEPSEEK-SETUP.md) | DeepSeek API 配置、模型切换、故障排查 |
-| [启动说明.txt](启动说明.txt) | Windows 网关启动方式、控制面板访问、端口占用处理 |
+| [启动说明.txt](启动说明.txt) | Windows 网关启动方式、控制面板访问、**4008/Unknown model 故障排查**、端口占用 |
+| [openclaw.windows.example.json](openclaw.windows.example.json) | Windows 本机免 Token 配置示例（DeepSeek + Brave 搜索） |
 | [Telegram配置说明.md](Telegram配置说明.md) | Telegram 机器人无响应排查、中国大陆代理配置 |
 
 **Windows 一键启动**：双击 `启动网关.bat` 即可启动网关，浏览器访问 http://127.0.0.1:18789 进入控制面板。

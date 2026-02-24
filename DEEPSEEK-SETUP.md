@@ -28,13 +28,19 @@ DEEPSEEK_API_KEY=sk-xxxxxxxxxxxxxxxx
 cd openclaw
 pnpm install
 pnpm ui:build   # 首次需要
-pnpm build
+pnpm build      # Windows 若报 bash 找不到，改用: pnpm build:win
+```
 
-# 启动网关
+启动网关：
+
+```bash
+# Linux/macOS
 pnpm gateway:watch
 # 或
 pnpm openclaw gateway --port 18789 --verbose
 ```
+
+Windows 推荐直接双击 **启动网关.bat**，或先 `set PATH=C:\Program Files\Git\bin;%PATH%` 后执行 `pnpm.cmd openclaw gateway --port 18789 --verbose`。详见 **启动说明.txt**。
 
 ### 4. 测试对话
 
@@ -56,9 +62,18 @@ pnpm openclaw agent --message "你好，请用中文回复"
 - **API 端点**: `https://api.deepseek.com/v1`（OpenAI 兼容）
 - **上下文窗口**: 128K tokens
 - **配置文件**: `~/.openclaw/openclaw.json`
-- **示例配置**: 项目根目录 `openclaw.deepseek.example.json`
+- **示例配置**: 项目根目录 `openclaw.deepseek.example.json`（通用）、`openclaw.windows.example.json`（Windows 本机免 Token + DeepSeek）
 
 ## 故障排查
+
+### Unknown model: deepseek/chat
+
+说明网关未识别到 DeepSeek 提供商。请确保 `openclaw.json` 中：
+
+1. **模型 ID** 为 `deepseek/deepseek-chat`（不是 `deepseek/chat`）。
+2. 存在 **models.providers.deepseek** 段（含 baseUrl、apiKey、models 列表）。
+
+可直接参考 **openclaw.windows.example.json** 中的 `models` 与 `agents.defaults` 部分，复制到你的 `~/.openclaw/openclaw.json`，并保证 `~/.openclaw/.env` 中有 `DEEPSEEK_API_KEY=sk-...`。
 
 ### HTTP 401: API Key invalid
 
