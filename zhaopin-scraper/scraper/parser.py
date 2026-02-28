@@ -158,39 +158,96 @@ def _extract_industry(company: dict) -> str:
     return ""
 
 
-# ── HTML 页面解析（备用方案） ─────────────────────────────
+# ── 智联招聘额外薪资格式（"8000-15000元"） ────────────────
+_SALARY_YUAN_PAT = re.compile(r"(?P<low>\d+)\s*[-~至]\s*(?P<high>\d+)\s*元")
+
+
+# ── HTML 页面解析（适配实际页面结构） ─────────────────────
 
 def parse_html_job_list(html: str) -> list[JobItem]:
-    """从搜索结果 HTML 页面提取职位列表（当 API 不可用时的备用方案）。"""
+    """从智联招聘搜索结果页 HTML 提取职位列表。
+
+    适配 2024-2026 页面结构：
+    - .joblist-box__item  职位卡片
+    - .jobinfo__name      职位名称 (a 标签，含链接)
+    - .jobinfo__salary    薪资
+    - .jobinfo__other-info-item  城市 / 经验 / 学历
+    - .companyinfo__name  公司名称
+    - .companyinfo__tag .joblist-box__item-tag  公司类型 / 规模 / 行业
+    - .jobinfo__tag .joblist-box__item-tag  技能标签
+    """
     soup = BeautifulSoup(html, "lxml")
     items: list[JobItem] = []
 
-    # 智联招聘搜索结果页通常使用 .joblist-box__item 或 .positionlist 类名
-    cards = soup.select(".joblist-box__item, .contentpile__content__wrapper, .positionlist .positionlist-cell")
+    cards = soup.select(".joblist-box__item")
     for card in cards:
-        link = card.select_one("a[href*='jobs']")
-        title_el = card.select_one(".iteminfo__line1__jobname, .contentpile__content__wrapper__cpt span, .cell__title")
-        salary_el = card.select_one(".iteminfo__line1__jobname__salary, .contentpile__content__wrapper__cpt__money, .cell__salary")
-        company_el = card.select_one(".iteminfo__line1__companyname a, .contentpile__content__wrapper__cname, .cell__company")
-        city_el = card.select_one(".iteminfo__line2__jobdesc span:first-child, .contentpile__content__wrapper__unit span:first-child")
-        exp_el = card.select_one(".iteminfo__line2__jobdesc span:nth-child(2)")
-        edu_el = card.select_one(".iteminfo__line2__jobdesc span:nth-child(3)")
+        # 职位名称 + 链接
+        name_el = card.select_one(".jobinfo__name")
+        job_name = name_el.get_text(strip=True) if name_el else ""
+        job_url = ""
+        if name_el and name_el.get("href"):
+            job_url = name_el["href"]
 
-        title = title_el.get_text(strip=True) if title_el else ""
+        # 薪资
+        salary_el = card.select_one(".jobinfo__salary")
         salary_raw = salary_el.get_text(strip=True) if salary_el else ""
         sal_min, sal_max, months = parse_salary(salary_raw)
 
+        # "8000-15000元" 特殊处理
+        if sal_min is None and salary_raw:
+            m_yuan = _SALARY_YUAN_PAT.search(salary_raw)
+            if m_yuan:
+                sal_min = int(m_yuan.group("low"))
+                sal_max = int(m_yuan.group("high"))
+                months = 12
+
+        # 城市 / 经验 / 学历 (jobinfo__other-info-item)
+        info_items = card.select(".jobinfo__other-info-item")
+        city = ""
+        district = ""
+        experience = ""
+        education = ""
+        for idx, el in enumerate(info_items):
+            text = el.get_text(strip=True)
+            if idx == 0:
+                # 第一项是城市，可能包含 "北京·海淀·羊坊店"
+                parts = text.split("·")
+                city = parts[0] if parts else text
+                district = "·".join(parts[1:]) if len(parts) > 1 else ""
+            elif idx == 1:
+                experience = text
+            elif idx == 2:
+                education = text
+
+        # 公司名称
+        company_el = card.select_one(".companyinfo__name")
+        company_name = company_el.get_text(strip=True) if company_el else ""
+
+        # 公司标签: 类型 / 规模 / 行业
+        company_tags = [t.get_text(strip=True) for t in card.select(".companyinfo__tag .joblist-box__item-tag")]
+        company_type = company_tags[0] if len(company_tags) > 0 else ""
+        company_size = company_tags[1] if len(company_tags) > 1 else ""
+        industry = company_tags[2] if len(company_tags) > 2 else ""
+
+        # 技能标签
+        skill_tags = [t.get_text(strip=True) for t in card.select(".jobinfo__tag .joblist-box__item-tag")]
+
         items.append(JobItem(
-            job_name=title,
+            job_name=job_name,
             salary_raw=salary_raw,
             salary_min=sal_min,
             salary_max=sal_max,
             salary_months=months,
-            company_name=company_el.get_text(strip=True) if company_el else "",
-            city=city_el.get_text(strip=True) if city_el else "",
-            experience=exp_el.get_text(strip=True) if exp_el else "",
-            education=edu_el.get_text(strip=True) if edu_el else "",
-            job_url=link["href"] if link and link.get("href") else "",
+            company_name=company_name,
+            company_size=company_size,
+            company_type=company_type,
+            industry=industry,
+            city=city,
+            district=district,
+            experience=experience,
+            education=education,
+            job_url=job_url,
+            tags=skill_tags,
         ))
 
     return items

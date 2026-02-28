@@ -37,7 +37,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import config
 from scraper.zhaopin import ZhaopinScraper
-from scraper.proxy import ProxyPool
 from analysis.clean import load_raw_data, clean_dataframe, save_clean_data
 from analysis.analyze import generate_full_report
 from analysis.visualize import generate_all_charts
@@ -52,26 +51,16 @@ logger = logging.getLogger("zhaopin-scraper")
 
 def cmd_scrape(args: argparse.Namespace) -> None:
     """执行数据抓取。"""
-    proxy_pool = ProxyPool(config.PROXY_LIST)
-    if proxy_pool.available:
-        logger.info("代理池已加载: %d 个代理", len(proxy_pool))
-
-    scraper = ZhaopinScraper(
-        proxy_pool=proxy_pool,
-        use_selenium=args.selenium,
-    )
+    scraper = ZhaopinScraper()
 
     cities = config.CITIES
     if args.city:
         cities = {args.city: config.CITIES.get(args.city, args.city)}
 
-    industries = config.INDUSTRIES
-    if args.industry:
-        industries = {args.industry: config.INDUSTRIES.get(args.industry, args.industry)}
-
     keywords = [args.keyword] if args.keyword else [""]
+    max_pages = getattr(args, "max_pages", 0) or config.MAX_PAGES_PER_QUERY
 
-    scraper.scrape_all(cities=cities, industries=industries, keywords=keywords)
+    scraper.scrape_all(cities=cities, keywords=keywords, max_pages=max_pages)
 
     logger.info("抓取统计: %s", scraper.stats)
 
@@ -151,8 +140,7 @@ def main() -> None:
     p_scrape = sub.add_parser("scrape", help="抓取职位数据")
     p_scrape.add_argument("--keyword", "-k", default="", help="搜索关键词")
     p_scrape.add_argument("--city", "-c", default="", help="城市代码（如 530=北京）")
-    p_scrape.add_argument("--industry", "-i", default="", help="行业代码（如 10100=IT）")
-    p_scrape.add_argument("--selenium", "-s", action="store_true", help="使用 Selenium 模式")
+    p_scrape.add_argument("--max-pages", "-m", type=int, default=0, help="每组合最大翻页数")
 
     # clean
     sub.add_parser("clean", help="清洗已有数据")
@@ -164,8 +152,7 @@ def main() -> None:
     p_all = sub.add_parser("all", help="全流程：抓取 → 清洗 → 分析")
     p_all.add_argument("--keyword", "-k", default="", help="搜索关键词")
     p_all.add_argument("--city", "-c", default="", help="城市代码")
-    p_all.add_argument("--industry", "-i", default="", help="行业代码")
-    p_all.add_argument("--selenium", "-s", action="store_true", help="使用 Selenium 模式")
+    p_all.add_argument("--max-pages", "-m", type=int, default=0, help="每组合最大翻页数")
 
     # schedule
     sub.add_parser("schedule", help="启动定时抓取调度")
