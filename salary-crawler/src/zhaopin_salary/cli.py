@@ -3,9 +3,6 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from zhaopin_salary.analysis import generate_report
-from zhaopin_salary.cleaning import clean_dataset
-from zhaopin_salary.discovery import discover_targets
 from zhaopin_salary.scheduler import monthly_cron_line
 
 
@@ -106,6 +103,8 @@ def run_crawl(args: argparse.Namespace) -> None:
 
 
 def run_clean(args: argparse.Namespace) -> None:
+    from zhaopin_salary.cleaning import clean_dataset
+
     stats = clean_dataset(args.input, args.csv, args.json)
     print(f"[clean] raw_rows={stats['raw_rows']} clean_rows={stats['clean_rows']} dropped={stats['dropped_duplicates']}")
     print(f"[clean] csv={args.csv}")
@@ -113,6 +112,8 @@ def run_clean(args: argparse.Namespace) -> None:
 
 
 def run_report(args: argparse.Namespace) -> None:
+    from zhaopin_salary.analysis import generate_report
+
     stats = generate_report(args.input, args.figure_dir, args.summary)
     print(f"[report] rows={stats['rows']} figures={stats['figures']}")
     print(f"[report] figure_dir={args.figure_dir}")
@@ -140,6 +141,8 @@ def run_schedule(args: argparse.Namespace) -> None:
 
 
 def run_discover(args: argparse.Namespace) -> None:
+    from zhaopin_salary.discovery import discover_targets
+
     payload = discover_targets(homepage_url=args.homepage, output_path=args.output)
     print(f"[discover] cities={len(payload.get('cities', []))} industries={len(payload.get('industries', []))}")
     print(f"[discover] output={args.output}")

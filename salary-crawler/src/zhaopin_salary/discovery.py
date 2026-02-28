@@ -4,10 +4,10 @@ import json
 from pathlib import Path
 from urllib.request import Request, urlopen
 
-from zhaopin_salary.parsers import extract_cities_from_homepage, extract_industries_from_homepage
-
 
 def discover_targets(homepage_url: str, output_path: str) -> dict[str, list[dict[str, str]]]:
+    from zhaopin_salary.parsers import extract_cities_from_homepage, extract_industries_from_homepage
+
     html = _fetch_html(homepage_url)
     industries = extract_industries_from_homepage(html, homepage_url)
     cities = extract_cities_from_homepage(html, homepage_url)
