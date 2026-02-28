@@ -1,0 +1,2 @@
+"""Zhaopin salary crawler package."""
+

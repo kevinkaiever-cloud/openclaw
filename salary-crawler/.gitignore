@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+data/raw/*.jsonl
+data/clean/*.csv
+data/clean/*.json
+reports/figures/*.png
+reports/summary.md
+logs/
