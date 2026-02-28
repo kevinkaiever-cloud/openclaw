@@ -147,3 +147,7 @@ def run_discover(args: argparse.Namespace) -> None:
     print(f"[discover] cities={len(payload.get('cities', []))} industries={len(payload.get('industries', []))}")
     print(f"[discover] output={args.output}")
 
+
+if __name__ == "__main__":
+    main()
+
