@@ -13,7 +13,8 @@ SALARY_NEGOTIABLE_KEYWORDS: Final[tuple[str, ...]] = (
 )
 
 RANGE_PATTERN: Final[re.Pattern[str]] = re.compile(
-    r"(?P<low>\d+(?:\.\d+)?)\s*[-~至]\s*(?P<high>\d+(?:\.\d+)?)\s*(?P<unit>[kK千万元]?)\s*(?:/|每)?\s*(?P<period>月|年|天|小时)?"
+    r"(?P<low>\d+(?:\.\d+)?)\s*(?P<unit_low>[kK千万元]?)\s*[-~至]\s*"
+    r"(?P<high>\d+(?:\.\d+)?)\s*(?P<unit_high>[kK千万元]?)\s*(?:/|每)?\s*(?P<period>月|年|天|小时)?"
 )
 SINGLE_PATTERN: Final[re.Pattern[str]] = re.compile(
     r"(?P<value>\d+(?:\.\d+)?)\s*(?P<unit>[kK千万元]?)\s*(?:/|每)?\s*(?P<period>月|年|天|小时)?"
@@ -41,7 +42,7 @@ def parse_salary(salary_raw: str | None) -> SalaryParseResult:
     if range_match:
         low = float(range_match.group("low"))
         high = float(range_match.group("high"))
-        unit = range_match.group("unit") or ""
+        unit = range_match.group("unit_high") or range_match.group("unit_low") or ""
         period = range_match.group("period")
         salary_min = _to_monthly_int(low, unit, period)
         salary_max = _to_monthly_int(high, unit, period)

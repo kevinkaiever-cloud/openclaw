@@ -36,7 +36,7 @@ def parse_experience_bucket(experience_req: str | None) -> str:
         low = int(above_match.group("low"))
         if low <= 3:
             return "0-3年"
-        if low <= 5:
+        if low < 5:
             return "3-5年"
         return "5年以上"
 
