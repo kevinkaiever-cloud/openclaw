@@ -79,6 +79,25 @@ In the Android app:
 - Under **Discovered Gateways**, select your gateway and hit **Connect**.
 - If mDNS is blocked, use **Advanced → Manual Gateway** (host + port) and **Connect (Manual)**.
 
+### 3.1) Run local gateway on the same Android device (localhost)
+
+If you want mobile-first usage with the agent stack running on the same phone:
+
+1. Start the gateway on the Android device itself (for example in Termux):
+
+```bash
+openclaw gateway --bind loopback --port 18789 --verbose
+```
+
+2. In the Android app, open **Settings → Advanced** and tap **Connect This Device (localhost)**.
+   - This preset enables Manual Gateway and fills `127.0.0.1:18789` with TLS off.
+
+Notes:
+
+- The app still acts as a node client; it does not embed its own gateway process.
+- `localhost` mode only works when a gateway is actually running on the same Android device.
+- For LAN/tailnet gateways, continue to use discovery or manual host/port.
+
 After the first successful pairing, Android auto-reconnects on launch:
 
 - Manual endpoint (if enabled), otherwise

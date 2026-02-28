@@ -418,6 +418,19 @@ fun SettingsSheet(viewModel: MainViewModel) {
             trailingContent = { Switch(checked = manualEnabled, onCheckedChange = viewModel::setManualEnabled) },
           )
 
+          Button(
+            onClick = {
+              NodeForegroundService.start(context)
+              viewModel.connectLocalGateway()
+            },
+          ) {
+            Text("Connect This Device (localhost)")
+          }
+          Text(
+            "Preset: 127.0.0.1:18789, TLS off. Use this when gateway/agent runs on this Android device.",
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+          )
+
           OutlinedTextField(
             value = manualHost,
             onValueChange = viewModel::setManualHost,

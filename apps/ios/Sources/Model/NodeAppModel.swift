@@ -1755,6 +1755,7 @@ extension NodeAppModel {
             token: token,
             password: password,
             nodeOptions: connectOptions)
+        self.updateLoopbackCanvasPolicyForActiveGateway()
         self.prepareForGatewayConnect(url: url, stableID: effectiveStableID)
         self.startOperatorGatewayLoop(
             url: url,
@@ -1806,6 +1807,7 @@ extension NodeAppModel {
         self.gatewayRemoteAddress = nil
         self.connectedGatewayID = nil
         self.activeGatewayConnectConfig = nil
+        self.updateLoopbackCanvasPolicyForActiveGateway()
         self.gatewayConnected = false
         self.operatorConnected = false
         self.talkMode.updateGatewayConnected(false)
