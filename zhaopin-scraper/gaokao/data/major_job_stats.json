@@ -1,0 +1,2274 @@
+{
+  "计算机科学与技术": {
+    "job_count": 80,
+    "salary_median": 12000,
+    "salary_avg": 13141,
+    "salary_min": 10500,
+    "salary_max": 15250,
+    "top_companies": [
+      "外企德科数字技术有限公司",
+      "东华医为科技有限公司",
+      "长沙玮腾新能源开发有限公司",
+      "北京中经网软件开发有限公司",
+      "东华软件股份公司"
+    ],
+    "top_cities": [
+      "西安",
+      "北京",
+      "长沙",
+      "上海",
+      "武汉"
+    ]
+  },
+  "人工智能": {
+    "job_count": 120,
+    "salary_median": 19500,
+    "salary_avg": 19270,
+    "salary_min": 12500,
+    "salary_max": 26500,
+    "top_companies": [
+      "外企德科数字技术有限公司",
+      "软通动力信息技术(集团)股份有限公司",
+      "广东广新家具有限公司",
+      "北京三快在线科技有限公司",
+      "楚大智能装备"
+    ],
+    "top_cities": [
+      "北京",
+      "上海",
+      "成都",
+      "南京",
+      "武汉"
+    ]
+  },
+  "软件工程": {
+    "job_count": 40,
+    "salary_median": 11000,
+    "salary_avg": 12256,
+    "salary_min": 9500,
+    "salary_max": 14250,
+    "top_companies": [
+      "北京银丰新融科技开发有限公司",
+      "北京盛安同力科技开发有限公司",
+      "广州汇豪计算机科技开发有限公司",
+      "北京信利恒丰科技发展有限公司",
+      "山西风软软件开发有限公司"
+    ],
+    "top_cities": [
+      "成都",
+      "杭州",
+      "北京",
+      "南京",
+      "西安"
+    ]
+  },
+  "数据科学与大数据技术": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "电子信息工程": {
+    "job_count": 71,
+    "salary_median": 9000,
+    "salary_avg": 9137,
+    "salary_min": 6000,
+    "salary_max": 10500,
+    "top_companies": [
+      "万事通(惠州)电子科技有限公司",
+      "徐州威卡电子控制技术有限公司",
+      "天元瑞信通信技术股份有限公司",
+      "东方通信",
+      "石家庄市华正恒通通信有限公司"
+    ],
+    "top_cities": [
+      "西安",
+      "惠州",
+      "深圳",
+      "北京",
+      "重庆"
+    ]
+  },
+  "通信工程": {
+    "job_count": 80,
+    "salary_median": 7500,
+    "salary_avg": 9539,
+    "salary_min": 5750,
+    "salary_max": 10000,
+    "top_companies": [
+      "河南低中空技术服务有限公司",
+      "长沙市臻杰科技有限责任公司",
+      "郑州旭端信息科技有限公司",
+      "天元瑞信通信技术股份有限公司",
+      "东方通信"
+    ],
+    "top_cities": [
+      "郑州",
+      "北京",
+      "成都",
+      "西安",
+      "南宁"
+    ]
+  },
+  "网络安全": {
+    "job_count": 80,
+    "salary_median": 11000,
+    "salary_avg": 11318,
+    "salary_min": 8875,
+    "salary_max": 13500,
+    "top_companies": [
+      "中世国信(北京)信息技术有限公司",
+      "绵阳奇安优服科技有限公司",
+      "软通动力信息技术(集团)股份有限公司",
+      "黑龙江邮政易通信息网络有限公司",
+      "深圳市法本信息技术股份有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "郑州",
+      "上海",
+      "南京",
+      "武汉"
+    ]
+  },
+  "物联网工程": {
+    "job_count": 76,
+    "salary_median": 12250,
+    "salary_avg": 13414,
+    "salary_min": 10000,
+    "salary_max": 15625,
+    "top_companies": [
+      "北京数据织梦智御科技有限公司",
+      "佰思杰科技",
+      "秦皇岛华电测控设备有限公司",
+      "江西豪斯特汽车零部件有限公司",
+      "浙江豪斯特汽车零部件有限公司"
+    ],
+    "top_cities": [
+      "郑州",
+      "上海",
+      "西安",
+      "武汉",
+      "深圳"
+    ]
+  },
+  "自动化": {
+    "job_count": 40,
+    "salary_median": 11000,
+    "salary_avg": 10887,
+    "salary_min": 8250,
+    "salary_max": 12750,
+    "top_companies": [
+      "固安正宇电气有限公司",
+      "云南伟通易达科技有限公司",
+      "上海集灵信息技术有限公司",
+      "长春恒羿自动化工程有限公司",
+      "威光自动化设备(厦门)有限公司"
+    ],
+    "top_cities": [
+      "长春",
+      "廊坊",
+      "昆明",
+      "成都",
+      "苏州"
+    ]
+  },
+  "机械工程": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "电气工程及其自动化": {
+    "job_count": 80,
+    "salary_median": 10250,
+    "salary_avg": 10700,
+    "salary_min": 7500,
+    "salary_max": 12125,
+    "top_companies": [
+      "思源电气",
+      "新乡市玺盛电气设备有限公司",
+      "南阳恒聚电气设备有限公司",
+      "安徽合凯电气科技股份有限公司",
+      "南京鼎业电气有限公司"
+    ],
+    "top_cities": [
+      "南京",
+      "成都",
+      "合肥",
+      "武汉",
+      "常州"
+    ]
+  },
+  "土木工程": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "建筑学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "临床医学": {
+    "job_count": 80,
+    "salary_median": 10500,
+    "salary_avg": 10581,
+    "salary_min": 7500,
+    "salary_max": 12125,
+    "top_companies": [
+      "广西旅发集团广西自贸区医院管理有限公司",
+      "南通汉药中医医院有限公司",
+      "济南健佳中医医院有限公司",
+      "通辽爱尔圣安眼科医院有限责任公司",
+      "长春北医医院有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "长春",
+      "济南",
+      "南宁",
+      "成都"
+    ]
+  },
+  "口腔医学": {
+    "job_count": 40,
+    "salary_median": 15000,
+    "salary_avg": 18450,
+    "salary_min": 11625,
+    "salary_max": 23000,
+    "top_companies": [
+      "咿呀英博(湖北)控股集团有限公司",
+      "烟台福海仁爱口腔门诊部有限公司",
+      "河北佰泰口腔医院有限公司",
+      "太原环中口腔医院有限公司",
+      "京东集团"
+    ],
+    "top_cities": [
+      "北京",
+      "石家庄",
+      "济南",
+      "太原",
+      "长春"
+    ]
+  },
+  "药学": {
+    "job_count": 94,
+    "salary_median": 6500,
+    "salary_avg": 7288,
+    "salary_min": 5500,
+    "salary_max": 8500,
+    "top_companies": [
+      "天津赛德生物制药有限公司",
+      "上海洋洋得医医疗科技有限公司",
+      "吉林吉春制药股份有限公司",
+      "吉林市正大博华心血管病医院",
+      "天津新世纪医院有限公司"
+    ],
+    "top_cities": [
+      "天津",
+      "济南",
+      "青岛",
+      "北京",
+      "沈阳"
+    ]
+  },
+  "护理学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "金融学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "会计学": {
+    "job_count": 40,
+    "salary_median": 9000,
+    "salary_avg": 9581,
+    "salary_min": 6500,
+    "salary_max": 11500,
+    "top_companies": [
+      "春雪会计",
+      "华财会计集团股份有限公司",
+      "内蒙古瑞森会计师事务所(普通合伙)",
+      "鹏盛会计师事务所(特殊普通合伙)北京分所",
+      "尤尼泰振青会计师事务所(特殊普通合伙)西海岸新区分所"
+    ],
+    "top_cities": [
+      "北京",
+      "毕节",
+      "广州",
+      "青岛",
+      "烟台"
+    ]
+  },
+  "经济学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "工商管理": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "市场营销": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "国际经济与贸易": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "法学": {
+    "job_count": 80,
+    "salary_median": 9000,
+    "salary_avg": 9423,
+    "salary_min": 7500,
+    "salary_max": 11500,
+    "top_companies": [
+      "河南九松法律咨询有限公司",
+      "湖南奉公法律咨询有限公司",
+      "江苏聚赢法务咨询服务有限公司",
+      "神羊(天津)法律咨询有限公司",
+      "中航天业"
+    ],
+    "top_cities": [
+      "郑州",
+      "成都",
+      "长沙",
+      "天津",
+      "武汉"
+    ]
+  },
+  "汉语言文学": {
+    "job_count": 40,
+    "salary_median": 7750,
+    "salary_avg": 9026,
+    "salary_min": 6500,
+    "salary_max": 10875,
+    "top_companies": [
+      "外企德科数字技术有限公司",
+      "宜昌奕诚职业培训学校有限公司",
+      "外企德科",
+      "北京三快在线科技有限公司",
+      "南阳佑盾生物科技有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "郑州",
+      "贵阳",
+      "西安",
+      "无锡"
+    ]
+  },
+  "英语": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "新闻学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "传播学": {
+    "job_count": 80,
+    "salary_median": 8750,
+    "salary_avg": 11375,
+    "salary_min": 6500,
+    "salary_max": 15000,
+    "top_companies": [
+      "外企德科数字技术有限公司",
+      "北京三快在线科技有限公司",
+      "运中公关顾问(北京)有限公司",
+      "宜昌奕诚职业培训学校有限公司",
+      "外企德科"
+    ],
+    "top_cities": [
+      "北京",
+      "郑州",
+      "苏州",
+      "无锡",
+      "上海"
+    ]
+  },
+  "广播电视编导": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "视觉传达设计": {
+    "job_count": 40,
+    "salary_median": 7500,
+    "salary_avg": 8648,
+    "salary_min": 6000,
+    "salary_max": 10000,
+    "top_companies": [
+      "软通动力信息技术(集团)股份有限公司",
+      "安徽领聚数字技术有限公司",
+      "蜜雪冰城股份有限公司",
+      "中衍设计集团有限公司",
+      "首森勘察设计有限公司"
+    ],
+    "top_cities": [
+      "郑州",
+      "成都",
+      "合肥",
+      "深圳",
+      "西安"
+    ]
+  },
+  "环境设计": {
+    "job_count": 40,
+    "salary_median": 10500,
+    "salary_avg": 13348,
+    "salary_min": 8250,
+    "salary_max": 13500,
+    "top_companies": [
+      "中国电力工程顾问集团中南电力设计院有限公司",
+      "中国市政工程华北设计研究总院有限公司",
+      "郑州紫盈节能环保科技有限公司",
+      "浙江灵动文化科技有限公司",
+      "广州市城建规划设计院有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "成都",
+      "广州",
+      "郑州",
+      "衢州"
+    ]
+  },
+  "心理学": {
+    "job_count": 120,
+    "salary_median": 10000,
+    "salary_avg": 11268,
+    "salary_min": 6500,
+    "salary_max": 15000,
+    "top_companies": [
+      "外企德科数字技术有限公司",
+      "武汉晟心安诺心理咨询有限公司",
+      "吉林省睿哲思心理咨询有限责任公司",
+      "心界探索心理咨询(厦门)有限公司",
+      "郑州雅方信息咨询有限公司"
+    ],
+    "top_cities": [
+      "深圳",
+      "北京",
+      "武汉",
+      "长春",
+      "郑州"
+    ]
+  },
+  "教育学": {
+    "job_count": 80,
+    "salary_median": 7500,
+    "salary_avg": 8434,
+    "salary_min": 6000,
+    "salary_max": 10625,
+    "top_companies": [
+      "平顶山清艳外国语学校",
+      "上海藕荷信息科技有限公司",
+      "天津勇林劳务派遣有限公司",
+      "徐州北智星托管服务有限公司",
+      "宁波中京职业技能培训学校有限公司"
+    ],
+    "top_cities": [
+      "太原",
+      "重庆",
+      "郑州",
+      "北京",
+      "漯河"
+    ]
+  },
+  "学前教育": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "生物科学": {
+    "job_count": 80,
+    "salary_median": 12000,
+    "salary_avg": 13503,
+    "salary_min": 8375,
+    "salary_max": 18000,
+    "top_companies": [
+      "软通动力信息技术(集团)股份有限公司",
+      "江西海普洛斯生物科技有限公司",
+      "山东中环众杰生物科技有限公司",
+      "宁波友波生物科技有限公司",
+      "予果生物"
+    ],
+    "top_cities": [
+      "北京",
+      "宁波",
+      "武汉",
+      "上海",
+      "重庆"
+    ]
+  },
+  "生物医学工程": {
+    "job_count": 40,
+    "salary_median": 10250,
+    "salary_avg": 14688,
+    "salary_min": 7500,
+    "salary_max": 20000,
+    "top_companies": [
+      "南京金贝斯生物科技有限公司",
+      "禾卓生物(重庆)有限公司",
+      "北京溯本源和生物科技有限公司",
+      "云笛生物科技有限公司",
+      "北京百奥思科生物医学技术有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "上海",
+      "重庆",
+      "南京",
+      "杭州"
+    ]
+  },
+  "化学工程与工艺": {
+    "job_count": 120,
+    "salary_median": 11500,
+    "salary_avg": 12500,
+    "salary_min": 8500,
+    "salary_max": 14000,
+    "top_companies": [
+      "重庆川东化工(集团)有限公司",
+      "河北亚东化工集团有限公司",
+      "上海船舶工艺研究所(中国船舶集团有限公司第十一研究所)",
+      "京新药业",
+      "杭州安旭生物科技股份有限公司"
+    ],
+    "top_cities": [
+      "上海",
+      "杭州",
+      "重庆",
+      "郑州",
+      "成都"
+    ]
+  },
+  "材料科学与工程": {
+    "job_count": 40,
+    "salary_median": 12750,
+    "salary_avg": 13487,
+    "salary_min": 11000,
+    "salary_max": 15000,
+    "top_companies": [
+      "山东安途制动材料有限公司",
+      "山东仁丰特种材料股份有限公司",
+      "吉林省中研高分子材料股份有限公司",
+      "青岛云路先进材料技术股份有限公司",
+      "江苏亨芯硅基材料有限公司"
+    ],
+    "top_cities": [
+      "上海",
+      "泰安",
+      "北京",
+      "沈阳",
+      "长春"
+    ]
+  },
+  "环境科学与工程": {
+    "job_count": 120,
+    "salary_median": 8000,
+    "salary_avg": 8460,
+    "salary_min": 6000,
+    "salary_max": 10500,
+    "top_companies": [
+      "甘肃亿源环境检测科技有限公司",
+      "上海青溪环保科技有限公司",
+      "湖南省华朗环境检测有限公司",
+      "广东中联兴环保科技有限公司",
+      "四川岷涛环保科技有限公司"
+    ],
+    "top_cities": [
+      "南京",
+      "成都",
+      "青岛",
+      "郑州",
+      "上海"
+    ]
+  },
+  "食品科学与工程": {
+    "job_count": 40,
+    "salary_median": 8500,
+    "salary_avg": 9787,
+    "salary_min": 5000,
+    "salary_max": 12125,
+    "top_companies": [
+      "郑州厨来香食品有限公司",
+      "山东冠珍轩豆制食品有限公司",
+      "内蒙古蒙时代食品科技集团有限公司",
+      "蜡笔小新(福建)食品工业有限公司",
+      "云南猫哆哩集团食品有限责任公司"
+    ],
+    "top_cities": [
+      "成都",
+      "郑州",
+      "济南",
+      "上海",
+      "泉州"
+    ]
+  },
+  "车辆工程": {
+    "job_count": 40,
+    "salary_median": 19500,
+    "salary_avg": 16400,
+    "salary_min": 9500,
+    "salary_max": 21375,
+    "top_companies": [
+      "河南研峰汽车科技有限公司",
+      "上海华驿汽车技术有限公司",
+      "上海先临汽车技术有限公司",
+      "湖北乐仁汽车电子有限公司",
+      "国峤(无锡)汽车部件技研有限公司"
+    ],
+    "top_cities": [
+      "广州",
+      "芜湖",
+      "重庆",
+      "北京",
+      "合肥"
+    ]
+  },
+  "能源与动力工程": {
+    "job_count": 40,
+    "salary_median": 12000,
+    "salary_avg": 12712,
+    "salary_min": 9000,
+    "salary_max": 15000,
+    "top_companies": [
+      "北京市煤气热力工程设计院有限公司",
+      "北京市热力工程设计有限责任公司",
+      "北京融城建设工程有限公司",
+      "哈尔滨鑫天翔电气设备经销有限公司",
+      "沈阳天润热力供暖有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "天津",
+      "南京",
+      "济南",
+      "杭州"
+    ]
+  },
+  "农学": {
+    "job_count": 80,
+    "salary_median": 6500,
+    "salary_avg": 6950,
+    "salary_min": 5500,
+    "salary_max": 8125,
+    "top_companies": [
+      "金豆子农业股份有限公司",
+      "河南荣运增农业科技有限公司",
+      "嘉兴鑫泽农业科技有限公司",
+      "西安咸恒农业科技有限公司",
+      "湖南新长山农业发展股份有限公司"
+    ],
+    "top_cities": [
+      "合肥",
+      "嘉兴",
+      "烟台",
+      "铜川",
+      "郑州"
+    ]
+  },
+  "动物医学": {
+    "job_count": 80,
+    "salary_median": 8750,
+    "salary_avg": 10331,
+    "salary_min": 6500,
+    "salary_max": 13500,
+    "top_companies": [
+      "正大集团",
+      "天邦食品股份有限公司",
+      "北京维通达生物技术有限公司",
+      "吉林省盛和牧业有限公司",
+      "赛科星集团公司"
+    ],
+    "top_cities": [
+      "北京",
+      "武汉",
+      "哈尔滨",
+      "郑州",
+      "成都"
+    ]
+  },
+  "中医学": {
+    "job_count": 40,
+    "salary_median": 6000,
+    "salary_avg": 7662,
+    "salary_min": 4875,
+    "salary_max": 9125,
+    "top_companies": [
+      "安国市参北堂中药饮片经营有限公司",
+      "陕西康誉中药有限公司",
+      "中国中药控股有限公司",
+      "四川国强中药饮片有限公司",
+      "湖南怀化龙成中药饮片有限责任公司"
+    ],
+    "top_cities": [
+      "成都",
+      "佛山",
+      "怀化",
+      "北京",
+      "晋中"
+    ]
+  },
+  "公共管理": {
+    "job_count": 35,
+    "salary_median": 10500,
+    "salary_avg": 11712,
+    "salary_min": 7500,
+    "salary_max": 15500,
+    "top_companies": [
+      "北京冠领律师事务所",
+      "山东佰世达木业有限公司",
+      "新东方教育科技集团有限公司",
+      "四川兴蓉律师事务所",
+      "太平洋产险"
+    ],
+    "top_cities": [
+      "成都",
+      "北京",
+      "济宁",
+      "青岛",
+      "昆明"
+    ]
+  },
+  "物流管理": {
+    "job_count": 120,
+    "salary_median": 8000,
+    "salary_avg": 9547,
+    "salary_min": 5500,
+    "salary_max": 11500,
+    "top_companies": [
+      "恒邦数科(江西)供应链集团有限公司",
+      "南京杰谱供应链有限公司",
+      "上海滨宜路通物流有限公司",
+      "石家庄市明亨物流有限公司",
+      "华润雪花"
+    ],
+    "top_cities": [
+      "广州",
+      "成都",
+      "上海",
+      "杭州",
+      "郑州"
+    ]
+  },
+  "旅游管理": {
+    "job_count": 80,
+    "salary_median": 7500,
+    "salary_avg": 8985,
+    "salary_min": 7500,
+    "salary_max": 10000,
+    "top_companies": [
+      "中国旅游集团旅行服务有限公司",
+      "成都来也旅游发展股份有限公司",
+      "深圳市旅联资讯有限公司",
+      "北京巅峰智业旅游文化创意股份有限公司",
+      "江苏鹏诺商务旅游有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "成都",
+      "南京",
+      "西安",
+      "深圳"
+    ]
+  },
+  "电子商务": {
+    "job_count": 40,
+    "salary_median": 7750,
+    "salary_avg": 8537,
+    "salary_min": 6000,
+    "salary_max": 9625,
+    "top_companies": [
+      "厦门市源也跨境电商有限公司",
+      "链宝(江苏)品牌运营管理有限公司",
+      "福建竹行天下运营管理有限公司",
+      "深圳坪山综保区运营有限公司",
+      "贵州电子商务云运营有限责任公司"
+    ],
+    "top_cities": [
+      "杭州",
+      "厦门",
+      "无锡",
+      "漳州",
+      "深圳"
+    ]
+  },
+  "信息管理与信息系统": {
+    "job_count": 120,
+    "salary_median": 10000,
+    "salary_avg": 12393,
+    "salary_min": 7500,
+    "salary_max": 16000,
+    "top_companies": [
+      "北京中润长弘管理咨询有限公司",
+      "洛阳企创数字科技有限公司",
+      "北京肯思捷信息系统咨询有限公司",
+      "江苏科海智能系统有限公司",
+      "北京华安保信息技术有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "大连",
+      "杭州",
+      "合肥",
+      "青岛"
+    ]
+  },
+  "统计学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "数学与应用数学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "物理学": {
+    "job_count": 60,
+    "salary_median": 15000,
+    "salary_avg": 16558,
+    "salary_min": 11250,
+    "salary_max": 20125,
+    "top_companies": [
+      "新东方教育科技集团有限公司",
+      "继善高科",
+      "河南百合特种光学研究院有限公司",
+      "英特工程仿真技术(大连)有限公司",
+      "杭州爱鸥光学科技有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "深圳",
+      "上海",
+      "长沙",
+      "天津"
+    ]
+  },
+  "集成电路设计与集成系统": {
+    "job_count": 40,
+    "salary_median": 26500,
+    "salary_avg": 27948,
+    "salary_min": 22500,
+    "salary_max": 30000,
+    "top_companies": [
+      "信必优(深圳)信息技术有限公司广州分公司",
+      "杭州国芯微电子股份有限公司",
+      "信必优(深圳)信息技术有限公司",
+      "合肥睿科微电子有限公司",
+      "深圳宝砾微电子有限公司"
+    ],
+    "top_cities": [
+      "西安",
+      "成都",
+      "杭州",
+      "合肥",
+      "深圳"
+    ]
+  },
+  "微电子科学与工程": {
+    "job_count": 40,
+    "salary_median": 30000,
+    "salary_avg": 28346,
+    "salary_min": 23000,
+    "salary_max": 30000,
+    "top_companies": [
+      "信必优(深圳)信息技术有限公司",
+      "信必优(深圳)信息技术有限公司广州分公司",
+      "成都天锐星通科技股份有限公司",
+      "叩持(西安)电子信息技术有限公司",
+      "北京泽石科技有限公司"
+    ],
+    "top_cities": [
+      "西安",
+      "深圳",
+      "北京",
+      "上海",
+      "成都"
+    ]
+  },
+  "机器人工程": {
+    "job_count": 80,
+    "salary_median": 12000,
+    "salary_avg": 16717,
+    "salary_min": 7875,
+    "salary_max": 20250,
+    "top_companies": [
+      "菲柯智能机器人有限公司",
+      "沈阳新松机器人自动化股份有限公司",
+      "台州市旗竑机器人有限公司",
+      "七腾机器人有限公司",
+      "杭州海康威视数字技术股份有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "沈阳",
+      "重庆",
+      "杭州",
+      "长春"
+    ]
+  },
+  "智能制造工程": {
+    "job_count": 40,
+    "salary_median": 11000,
+    "salary_avg": 11256,
+    "salary_min": 9250,
+    "salary_max": 13250,
+    "top_companies": [
+      "成都众和昊天科技有限公司",
+      "苏州七剑软件有限公司",
+      "江西模界荣耀科技平台有限公司",
+      "安徽鑫科新材料股份有限公司",
+      "成都华邻科技有限公司"
+    ],
+    "top_cities": [
+      "成都",
+      "北京",
+      "无锡",
+      "深圳",
+      "洛阳"
+    ]
+  },
+  "新能源科学与工程": {
+    "job_count": 40,
+    "salary_median": 12750,
+    "salary_avg": 15337,
+    "salary_min": 8875,
+    "salary_max": 20375,
+    "top_companies": [
+      "北京道威储能集团有限公司",
+      "江苏安时商用储能系统有限公司",
+      "液流储能科技有限公司",
+      "内蒙古中电储能技术有限公司",
+      "珠海科创储能科技有限公司"
+    ],
+    "top_cities": [
+      "南京",
+      "成都",
+      "太原",
+      "榆林",
+      "洛阳"
+    ]
+  },
+  "航空航天工程": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "交通运输": {
+    "job_count": 120,
+    "salary_median": 8750,
+    "salary_avg": 10664,
+    "salary_min": 6000,
+    "salary_max": 12500,
+    "top_companies": [
+      "深圳都市交通",
+      "北京交科公路勘察设计研究院有限公司",
+      "信风(宁波)海运物流有限公司",
+      "江苏晓海物流有限公司",
+      "蜀海(北京)供应链管理有限责任公司"
+    ],
+    "top_cities": [
+      "广州",
+      "北京",
+      "深圳",
+      "成都",
+      "天津"
+    ]
+  },
+  "日语": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "法语": {
+    "job_count": 80,
+    "salary_median": 17750,
+    "salary_avg": 17453,
+    "salary_min": 9875,
+    "salary_max": 22500,
+    "top_companies": [
+      "上海泰柯翻译有限公司",
+      "华中国际人才合作(山东)有限公司",
+      "天津缘众达管道工程有限公司",
+      "北京中外翻译咨询有限公司",
+      "安徽译博翻译咨询服务有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "武汉",
+      "上海",
+      "广州",
+      "合肥"
+    ]
+  },
+  "德语": {
+    "job_count": 40,
+    "salary_median": 7250,
+    "salary_avg": 8263,
+    "salary_min": 6000,
+    "salary_max": 10625,
+    "top_companies": [
+      "四川沙都信息技术有限公司",
+      "烟台赛思汇译翻译有限公司",
+      "大连弗斯特高新人才发展管理有限公司",
+      "安徽译博翻译咨询服务有限公司",
+      "广州信实翻译服务有限公司"
+    ],
+    "top_cities": [
+      "上海",
+      "北京",
+      "济南",
+      "沈阳",
+      "桂林"
+    ]
+  },
+  "西班牙语": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "俄语": {
+    "job_count": 80,
+    "salary_median": 11500,
+    "salary_avg": 11776,
+    "salary_min": 7500,
+    "salary_max": 15000,
+    "top_companies": [
+      "山东秋实翻译服务有限公司",
+      "深圳立晟翻译有限公司",
+      "语言桥",
+      "广州信实翻译服务有限公司",
+      "吉林省华诚伟业汽车贸易集团股份有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "青岛",
+      "郑州",
+      "长春",
+      "乌鲁木齐"
+    ]
+  },
+  "阿拉伯语": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "朝鲜语": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "翻译": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "网络与新媒体": {
+    "job_count": 80,
+    "salary_median": 7000,
+    "salary_avg": 7809,
+    "salary_min": 6000,
+    "salary_max": 9375,
+    "top_companies": [
+      "外企德科数字技术有限公司",
+      "宜昌奕诚职业培训学校有限公司",
+      "中山市众鑫传媒科技有限公司",
+      "外企德科",
+      "北京三快在线科技有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "郑州",
+      "濮阳",
+      "合肥",
+      "临沂"
+    ]
+  },
+  "广告学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "数字媒体艺术": {
+    "job_count": 80,
+    "salary_median": 10000,
+    "salary_avg": 10709,
+    "salary_min": 6750,
+    "salary_max": 15000,
+    "top_companies": [
+      "软通动力信息技术(集团)股份有限公司",
+      "东风日产乘用车公司",
+      "蜜雪冰城股份有限公司",
+      "安徽领聚数字技术有限公司",
+      "中软国际"
+    ],
+    "top_cities": [
+      "郑州",
+      "深圳",
+      "上海",
+      "重庆",
+      "广州"
+    ]
+  },
+  "产品设计": {
+    "job_count": 40,
+    "salary_median": 10500,
+    "salary_avg": 10837,
+    "salary_min": 8000,
+    "salary_max": 12000,
+    "top_companies": [
+      "深圳绿团创意设计有限公司",
+      "台州市达人工业设计股份有限公司",
+      "天津角度工业产品设计有限公司",
+      "南京煌华建筑装饰设计有限公司",
+      "郑州一诺工业产品设计有限公司"
+    ],
+    "top_cities": [
+      "成都",
+      "郑州",
+      "广州",
+      "台州",
+      "上海"
+    ]
+  },
+  "工业设计": {
+    "job_count": 40,
+    "salary_median": 10500,
+    "salary_avg": 10837,
+    "salary_min": 8000,
+    "salary_max": 12000,
+    "top_companies": [
+      "深圳绿团创意设计有限公司",
+      "台州市达人工业设计股份有限公司",
+      "天津角度工业产品设计有限公司",
+      "南京煌华建筑装饰设计有限公司",
+      "郑州一诺工业产品设计有限公司"
+    ],
+    "top_cities": [
+      "成都",
+      "郑州",
+      "广州",
+      "台州",
+      "上海"
+    ]
+  },
+  "动画": {
+    "job_count": 120,
+    "salary_median": 8000,
+    "salary_avg": 9086,
+    "salary_min": 6000,
+    "salary_max": 10500,
+    "top_companies": [
+      "吉林动画学院",
+      "济南仟寻影视传媒有限公司",
+      "软通动力信息技术(集团)股份有限公司",
+      "深圳市沃菲数字营销有限公司",
+      "爱迪特(秦皇岛)科技股份有限公司"
+    ],
+    "top_cities": [
+      "深圳",
+      "北京",
+      "成都",
+      "长春",
+      "济南"
+    ]
+  },
+  "播音与主持艺术": {
+    "job_count": 80,
+    "salary_median": 9500,
+    "salary_avg": 8521,
+    "salary_min": 6000,
+    "salary_max": 10500,
+    "top_companies": [
+      "广州月半星名文化传媒有限公司",
+      "宿州市语新文化传媒有限公司",
+      "赫鸣(沈阳)传媒有限公司",
+      "秦皇岛华音文化传媒有限公司",
+      "烟台莺格文化传媒有限公司"
+    ],
+    "top_cities": [
+      "成都",
+      "西安",
+      "秦皇岛",
+      "武汉",
+      "泸州"
+    ]
+  },
+  "表演": {
+    "job_count": 80,
+    "salary_median": 10000,
+    "salary_avg": 9272,
+    "salary_min": 9000,
+    "salary_max": 11000,
+    "top_companies": [
+      "山东名扬文化艺术交流活动策划有限公司",
+      "今典唱片(北京)文化有限公司",
+      "济南鑫之淼演艺策划有限责任公司",
+      "星途自由树(福州)娱乐传媒有限公司",
+      "长春七千文化传媒有限公司"
+    ],
+    "top_cities": [
+      "福州",
+      "长春",
+      "北京",
+      "哈尔滨",
+      "太原"
+    ]
+  },
+  "音乐学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "舞蹈学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "哲学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "社会学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "政治学与行政学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "国际政治": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "社会工作": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "人力资源管理": {
+    "job_count": 80,
+    "salary_median": 7500,
+    "salary_avg": 8096,
+    "salary_min": 5500,
+    "salary_max": 10000,
+    "top_companies": [
+      "外企德科数字技术有限公司",
+      "众腾人力资源集团有限公司",
+      "福州朴朴电子商务有限公司",
+      "杭州星汉人力资源有限公司",
+      "康龙化成(成都)临床研究服务有限公司"
+    ],
+    "top_cities": [
+      "成都",
+      "北京",
+      "深圳",
+      "合肥",
+      "广州"
+    ]
+  },
+  "财务管理": {
+    "job_count": 40,
+    "salary_median": 9000,
+    "salary_avg": 9581,
+    "salary_min": 6500,
+    "salary_max": 11500,
+    "top_companies": [
+      "春雪会计",
+      "华财会计集团股份有限公司",
+      "内蒙古瑞森会计师事务所(普通合伙)",
+      "鹏盛会计师事务所(特殊普通合伙)北京分所",
+      "尤尼泰振青会计师事务所(特殊普通合伙)西海岸新区分所"
+    ],
+    "top_cities": [
+      "北京",
+      "毕节",
+      "广州",
+      "青岛",
+      "烟台"
+    ]
+  },
+  "审计学": {
+    "job_count": 40,
+    "salary_median": 12500,
+    "salary_avg": 12837,
+    "salary_min": 8750,
+    "salary_max": 16000,
+    "top_companies": [
+      "悦康药业集团股份有限公司",
+      "华彬集团",
+      "外企德科数字技术有限公司",
+      "加拿大希尔威金属矿业中国有限公司",
+      "绿杰股份有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "上海",
+      "无锡",
+      "徐州",
+      "西安"
+    ]
+  },
+  "税收学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "保险学": {
+    "job_count": 80,
+    "salary_median": 11500,
+    "salary_avg": 12230,
+    "salary_min": 8500,
+    "salary_max": 15000,
+    "top_companies": [
+      "中国平安人寿保险股份有限公司2",
+      "中国平安人寿保险股份有限公司江苏分公司1",
+      "中国平安人寿保险股份有限公司贵州分公司1",
+      "中国平安人寿保险股份有限公司四川分公司4",
+      "中国平安人寿保险股份有限公司河北分公司2"
+    ],
+    "top_cities": [
+      "西宁",
+      "上海",
+      "扬州",
+      "北京",
+      "石家庄"
+    ]
+  },
+  "投资学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "应用化学": {
+    "job_count": 80,
+    "salary_median": 7500,
+    "salary_avg": 9500,
+    "salary_min": 6000,
+    "salary_max": 10500,
+    "top_companies": [
+      "康龙化成",
+      "烟台东方化学有限公司",
+      "石家庄手性化学有限公司",
+      "中科院大连化学物理研究所",
+      "成都开飞高能化学工业有限公司"
+    ],
+    "top_cities": [
+      "天津",
+      "青岛",
+      "菏泽",
+      "成都",
+      "大连"
+    ]
+  },
+  "化学": {
+    "job_count": 120,
+    "salary_median": 9000,
+    "salary_avg": 10548,
+    "salary_min": 6875,
+    "salary_max": 12500,
+    "top_companies": [
+      "北京六合宁远医药科技股份有限公司",
+      "京新药业",
+      "杭州安旭生物科技股份有限公司",
+      "芮孚化学(浙江)有限公司",
+      "新元化学(山东)股份有限公司"
+    ],
+    "top_cities": [
+      "上海",
+      "杭州",
+      "青岛",
+      "成都",
+      "北京"
+    ]
+  },
+  "应用物理学": {
+    "job_count": 60,
+    "salary_median": 15000,
+    "salary_avg": 16558,
+    "salary_min": 11250,
+    "salary_max": 20125,
+    "top_companies": [
+      "新东方教育科技集团有限公司",
+      "河南百合特种光学研究院有限公司",
+      "继善高科",
+      "杭州爱鸥光学科技有限公司",
+      "英特工程仿真技术(大连)有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "上海",
+      "深圳",
+      "长沙",
+      "南京"
+    ]
+  },
+  "天文学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "地理信息科学": {
+    "job_count": 120,
+    "salary_median": 7500,
+    "salary_avg": 8701,
+    "salary_min": 5500,
+    "salary_max": 11500,
+    "top_companies": [
+      "航天信德智图(北京)科技有限公司",
+      "思源电气",
+      "江苏中天吉奥信息技术股份有限公司",
+      "海南省航天技术创新中心",
+      "中国四维测绘技术有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "西安",
+      "呼和浩特",
+      "青岛",
+      "济南"
+    ]
+  },
+  "测绘工程": {
+    "job_count": 120,
+    "salary_median": 7750,
+    "salary_avg": 8878,
+    "salary_min": 5875,
+    "salary_max": 11125,
+    "top_companies": [
+      "思源电气",
+      "西安爱德华测量设备股份有限公司",
+      "江苏中天吉奥信息技术股份有限公司",
+      "中国四维测绘技术有限公司",
+      "西安长地勘察测绘有限公司"
+    ],
+    "top_cities": [
+      "西安",
+      "成都",
+      "哈尔滨",
+      "济南",
+      "北京"
+    ]
+  },
+  "遥感科学与技术": {
+    "job_count": 80,
+    "salary_median": 8000,
+    "salary_avg": 9942,
+    "salary_min": 6375,
+    "salary_max": 14125,
+    "top_companies": [
+      "航天信德智图(北京)科技有限公司",
+      "思源电气",
+      "江苏中天吉奥信息技术股份有限公司",
+      "海南省航天技术创新中心",
+      "长光禹辰信息技术与装备(青岛)有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "青岛",
+      "乌鲁木齐",
+      "呼和浩特",
+      "文昌"
+    ]
+  },
+  "海洋科学": {
+    "job_count": 80,
+    "salary_median": 10500,
+    "salary_avg": 12368,
+    "salary_min": 6500,
+    "salary_max": 15000,
+    "top_companies": [
+      "普斯瑞克石油化工工程有限公司",
+      "爱邦海洋工程(天津)有限公司",
+      "日照市山泽海洋旅游产业开发有限公司",
+      "广州海洋馆运营管理有限公司",
+      "大连海洋大学科技园有限公司"
+    ],
+    "top_cities": [
+      "天津",
+      "青岛",
+      "大连",
+      "日照",
+      "上海"
+    ]
+  },
+  "大气科学": {
+    "job_count": 40,
+    "salary_median": 13000,
+    "salary_avg": 13041,
+    "salary_min": 7500,
+    "salary_max": 16625,
+    "top_companies": [
+      "团配供应链管理",
+      "广州大塘企业管理服务有限公司",
+      "华诺星空技术股份有限公司",
+      "南京叁云科技有限公司",
+      "吉祥航空"
+    ],
+    "top_cities": [
+      "南京",
+      "北京",
+      "盐城",
+      "长沙",
+      "太原"
+    ]
+  },
+  "地质工程": {
+    "job_count": 40,
+    "salary_median": 17500,
+    "salary_avg": 20200,
+    "salary_min": 12000,
+    "salary_max": 23125,
+    "top_companies": [
+      "陕西鑫辉矿业开发有限公司",
+      "中汽高安森泽商贸城开发有限公司",
+      "四川省能投油气勘探开发有限公司",
+      "天津合众丰源石油技术股份有限公司",
+      "佳泰恒润(西安)国际贸易有限公司"
+    ],
+    "top_cities": [
+      "成都",
+      "北京",
+      "西安",
+      "巴音郭楞",
+      "乌鲁木齐"
+    ]
+  },
+  "采矿工程": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "石油工程": {
+    "job_count": 40,
+    "salary_median": 10750,
+    "salary_avg": 14412,
+    "salary_min": 8125,
+    "salary_max": 18750,
+    "top_companies": [
+      "四川佳运油气技术服务有限公司成都分公司",
+      "四川方能油气工程技术服务有限公司",
+      "四川省油气勘探开发有限公司",
+      "山东胜软科技股份有限公司",
+      "中工国际"
+    ],
+    "top_cities": [
+      "成都",
+      "东营",
+      "天津",
+      "西安",
+      "乌兹别克斯坦"
+    ]
+  },
+  "核工程与核技术": {
+    "job_count": 52,
+    "salary_median": 9000,
+    "salary_avg": 9846,
+    "salary_min": 7500,
+    "salary_max": 12500,
+    "top_companies": [
+      "苏州新星核电技术服务有限公司",
+      "浙江科路数据科技有限公司",
+      "浙江恒电建筑有限公司",
+      "浙江万纳核电检修有限公司",
+      "中核深圳凯利集团有限公司"
+    ],
+    "top_cities": [
+      "汕尾",
+      "深圳",
+      "葫芦岛",
+      "宁德",
+      "威海"
+    ]
+  },
+  "飞行器设计与工程": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "武器系统与工程": {
+    "job_count": 48,
+    "salary_median": 11750,
+    "salary_avg": 13562,
+    "salary_min": 9750,
+    "salary_max": 16375,
+    "top_companies": [
+      "西安天和防务技术股份有限公司",
+      "深圳市泰士特科技股份有限公司",
+      "中科星图股份有限公司",
+      "北京瑞风协同",
+      "江苏美特林科特殊合金股份有限公司"
+    ],
+    "top_cities": [
+      "西安",
+      "深圳",
+      "成都",
+      "北京",
+      "武汉"
+    ]
+  },
+  "船舶与海洋工程": {
+    "job_count": 61,
+    "salary_median": 15000,
+    "salary_avg": 15841,
+    "salary_min": 10000,
+    "salary_max": 17875,
+    "top_companies": [
+      "普斯瑞克石油化工工程有限公司",
+      "航天思尔特",
+      "爱邦海洋工程(天津)有限公司",
+      "天津华津中天科技有限公司",
+      "中交海建"
+    ],
+    "top_cities": [
+      "天津",
+      "上海",
+      "大连",
+      "烟台",
+      "北京"
+    ]
+  },
+  "纺织工程": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "轻化工程": {
+    "job_count": 79,
+    "salary_median": 9500,
+    "salary_avg": 11177,
+    "salary_min": 7500,
+    "salary_max": 15000,
+    "top_companies": [
+      "玫德集团",
+      "西安维亚造纸机械有限公司",
+      "江西永冠科技发展有限公司",
+      "泰盛(宿州)生活用品有限公司",
+      "河南派沃网络科技有限公司"
+    ],
+    "top_cities": [
+      "成都",
+      "石家庄",
+      "郑州",
+      "临沂",
+      "广州"
+    ]
+  },
+  "包装工程": {
+    "job_count": 80,
+    "salary_median": 8000,
+    "salary_avg": 8412,
+    "salary_min": 6000,
+    "salary_max": 10500,
+    "top_companies": [
+      "特耐王包装(天津)有限公司",
+      "河南豫铭包装有限公司",
+      "郑州市麒钰包装制品有限公司",
+      "禾汇包装",
+      "山东泉能包装有限公司"
+    ],
+    "top_cities": [
+      "郑州",
+      "青岛",
+      "天津",
+      "烟台",
+      "上海"
+    ]
+  },
+  "印刷工程": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "食品质量与安全": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "酿酒工程": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "林学": {
+    "job_count": 80,
+    "salary_median": 7500,
+    "salary_avg": 7342,
+    "salary_min": 6000,
+    "salary_max": 9000,
+    "top_companies": [
+      "元气森林(北京)食品科技集团有限公司",
+      "北京物华云通货物运输有限公司",
+      "漳州绿高林业有限公司",
+      "河南建业教育产业有限公司",
+      "广州市众森林业有限公司"
+    ],
+    "top_cities": [
+      "广州",
+      "成都",
+      "济南",
+      "梅州",
+      "深圳"
+    ]
+  },
+  "园艺": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "水产养殖学": {
+    "job_count": 110,
+    "salary_median": 8000,
+    "salary_avg": 10524,
+    "salary_min": 7500,
+    "salary_max": 12000,
+    "top_companies": [
+      "佛山市盈渔水产科技投资有限公司",
+      "大连凯达水产有限公司",
+      "双胞胎集团",
+      "珠海嘉业水产有限公司",
+      "成都乘鹰水产有限公司"
+    ],
+    "top_cities": [
+      "佛山",
+      "成都",
+      "广州",
+      "大连",
+      "杭州"
+    ]
+  },
+  "动物科学": {
+    "job_count": 120,
+    "salary_median": 8000,
+    "salary_avg": 9835,
+    "salary_min": 6875,
+    "salary_max": 11500,
+    "top_companies": [
+      "双胞胎集团",
+      "四川省眉山万家好饲料有限公司",
+      "内蒙古优然牧业有限责任公司",
+      "正大集团",
+      "河南富多康生物工程有限公司"
+    ],
+    "top_cities": [
+      "成都",
+      "哈尔滨",
+      "安阳",
+      "赤峰",
+      "郑州"
+    ]
+  },
+  "草业科学": {
+    "job_count": 8,
+    "salary_median": 11500,
+    "salary_avg": 11437,
+    "salary_min": 9000,
+    "salary_max": 11625,
+    "top_companies": [
+      "万桥信息",
+      "内蒙古正时生态农业(集团)有限公司",
+      "蒙草生态环境(集团)股份有限公司",
+      "无锡迅杰光远科技有限公司",
+      "武汉市江夏区金龙畜禽有限责任公司"
+    ],
+    "top_cities": [
+      "呼和浩特",
+      "兰州",
+      "北京",
+      "武汉",
+      "西安"
+    ]
+  },
+  "植物保护": {
+    "job_count": 88,
+    "salary_median": 8500,
+    "salary_avg": 9431,
+    "salary_min": 6000,
+    "salary_max": 11500,
+    "top_companies": [
+      "郑州绿业元农业科技有限公司",
+      "青岛凯盛浩丰智慧农业科技有限公司",
+      "沈阳同祥生物农药有限公司",
+      "江苏省农药研究所股份有限公司",
+      "江苏艾津作物科技集团有限公司"
+    ],
+    "top_cities": [
+      "南京",
+      "北京",
+      "郑州",
+      "南宁",
+      "沈阳"
+    ]
+  },
+  "预防医学": {
+    "job_count": 82,
+    "salary_median": 8000,
+    "salary_avg": 9190,
+    "salary_min": 6000,
+    "salary_max": 11500,
+    "top_companies": [
+      "曼迪匹艾（武汉）科技服务有限公司",
+      "上海之江生物科技股份有限公司",
+      "青岛维可迈中医康复医院有限公司",
+      "杭州广科安德生物科技有限公司",
+      "安科高新技术(河南)研究院有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "成都",
+      "青岛",
+      "武汉",
+      "济南"
+    ]
+  },
+  "医学检验技术": {
+    "job_count": 60,
+    "salary_median": 6500,
+    "salary_avg": 6769,
+    "salary_min": 5000,
+    "salary_max": 8125,
+    "top_companies": [
+      "新疆领衔特种设备检验检测有限公司",
+      "北京中科医学检验实验室有限公司",
+      "大家检验集团股份有限公司",
+      "合肥华澳医学检验实验室",
+      "南京金利检验有限公司"
+    ],
+    "top_cities": [
+      "乌鲁木齐",
+      "成都",
+      "潍坊",
+      "连云港",
+      "银川"
+    ]
+  },
+  "医学影像学": {
+    "job_count": 40,
+    "salary_median": 10250,
+    "salary_avg": 10600,
+    "salary_min": 7250,
+    "salary_max": 13250,
+    "top_companies": [
+      "瑞慈医疗",
+      "安徽烁今人力资源服务有限公司",
+      "宁波海曙新诚健康体检中心有限公司",
+      "济南中医肝病医院有限公司",
+      "高尚集团"
+    ],
+    "top_cities": [
+      "西安",
+      "济南",
+      "武汉",
+      "青岛",
+      "北京"
+    ]
+  },
+  "麻醉学": {
+    "job_count": 80,
+    "salary_median": 11500,
+    "salary_avg": 12712,
+    "salary_min": 9000,
+    "salary_max": 15000,
+    "top_companies": [
+      "西安生殖医学医院有限公司",
+      "广西旅发集团广西自贸区医院管理有限公司",
+      "江苏恒瑞医药股份有限公司",
+      "威高集团",
+      "沈阳民生耳鼻喉专科医院有限公司"
+    ],
+    "top_cities": [
+      "沈阳",
+      "郑州",
+      "西安",
+      "成都",
+      "南宁"
+    ]
+  },
+  "精神医学": {
+    "job_count": 20,
+    "salary_median": 7500,
+    "salary_avg": 8500,
+    "salary_min": 5750,
+    "salary_max": 9000,
+    "top_companies": [
+      "海兰医院有限责任公司",
+      "武汉紫荆医院",
+      "上海开欣医疗科技有限公司",
+      "长春康林心理医院有限公司",
+      "北京军颐中医医院有限公司"
+    ],
+    "top_cities": [
+      "武汉",
+      "延边",
+      "郑州",
+      "成都",
+      "哈尔滨"
+    ]
+  },
+  "法医学": {
+    "job_count": 40,
+    "salary_median": 7000,
+    "salary_avg": 8212,
+    "salary_min": 5375,
+    "salary_max": 11125,
+    "top_companies": [
+      "山西光大司法鉴定所",
+      "云南云通司法鉴定中心",
+      "北京永泰安达科技有限公司",
+      "广西众邦司法鉴定中心",
+      "广东广正司法鉴定所"
+    ],
+    "top_cities": [
+      "北京",
+      "昆明",
+      "太原",
+      "深圳",
+      "成都"
+    ]
+  },
+  "中药学": {
+    "job_count": 120,
+    "salary_median": 7500,
+    "salary_avg": 9320,
+    "salary_min": 5500,
+    "salary_max": 10000,
+    "top_companies": [
+      "安国市参北堂中药饮片经营有限公司",
+      "陕西康誉中药有限公司",
+      "中国中药控股有限公司",
+      "四川国强中药饮片有限公司",
+      "北京凯博通投资有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "成都",
+      "石家庄",
+      "济南",
+      "长沙"
+    ]
+  },
+  "针灸推拿学": {
+    "job_count": 0,
+    "salary_median": 0,
+    "salary_avg": 0,
+    "salary_min": 0,
+    "salary_max": 0,
+    "top_companies": [],
+    "top_cities": []
+  },
+  "运动训练": {
+    "job_count": 80,
+    "salary_median": 10500,
+    "salary_avg": 10760,
+    "salary_min": 7500,
+    "salary_max": 13000,
+    "top_companies": [
+      "天津市阅城蓝庭健身服务有限公司",
+      "深圳荣灿健身服务有限公司",
+      "深圳毅鑫健身服务有限公司",
+      "云南鑫锐健身服务有限公司",
+      "濮阳鑫淼体育有限公司"
+    ],
+    "top_cities": [
+      "郑州",
+      "济南",
+      "昆明",
+      "沈阳",
+      "广州"
+    ]
+  },
+  "体育教育": {
+    "job_count": 80,
+    "salary_median": 6250,
+    "salary_avg": 7321,
+    "salary_min": 5500,
+    "salary_max": 9500,
+    "top_companies": [
+      "濮阳鑫淼体育有限公司",
+      "杭州捷茵体育文化有限公司",
+      "平顶山清艳外国语学校",
+      "中國新高教集團有限公司",
+      "临沂长城职业中等专业学校"
+    ],
+    "top_cities": [
+      "平顶山",
+      "杭州",
+      "太原",
+      "青岛",
+      "北京"
+    ]
+  },
+  "休闲体育": {
+    "job_count": 40,
+    "salary_median": 12000,
+    "salary_avg": 13100,
+    "salary_min": 10375,
+    "salary_max": 15000,
+    "top_companies": [
+      "天津市阅城蓝庭健身服务有限公司",
+      "深圳荣灿健身服务有限公司",
+      "青岛全时健身健康管理有限公司",
+      "合肥聚变健身有限责任公司",
+      "深圳毅鑫健身服务有限公司"
+    ],
+    "top_cities": [
+      "沈阳",
+      "济南",
+      "青岛",
+      "德州",
+      "郑州"
+    ]
+  },
+  "知识产权": {
+    "job_count": 40,
+    "salary_median": 8500,
+    "salary_avg": 9752,
+    "salary_min": 7000,
+    "salary_max": 10125,
+    "top_companies": [
+      "山东千慧知识产权集团有限公司",
+      "重庆应策知识产权代理有限公司",
+      "北京知联天下知识产权代理有限公司合肥分公司",
+      "北京集佳知识产权代理有限公司河南分公司",
+      "河北世诚知识产权代理事务所(普通合伙)"
+    ],
+    "top_cities": [
+      "重庆",
+      "济南",
+      "沈阳",
+      "北京",
+      "郑州"
+    ]
+  },
+  "监狱学": {
+    "job_count": 1,
+    "salary_median": 13500,
+    "salary_avg": 13500,
+    "salary_min": 13500,
+    "salary_max": 13500,
+    "top_companies": [
+      "山东万博科技股份有限公司"
+    ],
+    "top_cities": [
+      "济南"
+    ]
+  },
+  "侦查学": {
+    "job_count": 27,
+    "salary_median": 9000,
+    "salary_avg": 11518,
+    "salary_min": 6500,
+    "salary_max": 18500,
+    "top_companies": [
+      "雨润集团",
+      "江苏南京师大教育发展有限公司",
+      "焦作文昌脑病医院",
+      "华彬快速消费品投资管理有限公司",
+      "重庆轩博机械有限公司"
+    ],
+    "top_cities": [
+      "广州",
+      "合肥",
+      "南京",
+      "焦作",
+      "四平"
+    ]
+  },
+  "消防工程": {
+    "job_count": 80,
+    "salary_median": 9500,
+    "salary_avg": 9787,
+    "salary_min": 7500,
+    "salary_max": 11500,
+    "top_companies": [
+      "软通动力信息技术(集团)股份有限公司",
+      "国宏消防工程集团有限公司厦门分公司",
+      "江西荣达消防技术服务有限公司",
+      "上海华亿泽消防科技有限公司",
+      "内蒙古国安消防设施维护有限公司"
+    ],
+    "top_cities": [
+      "北京",
+      "深圳",
+      "东莞",
+      "西安",
+      "上海"
+    ]
+  }
+}
